@@ -1,0 +1,61 @@
+{
+  "name": "@justeat/f-toggle",
+  "description": "Fozzie vanilla JS toggle library.",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/justeat/f-toggle",
+  "contributors": [
+    "Github contributors <https://github.com/justeat/f-toggle/graphs/contributors>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:justeat/f-toggle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justeat/f-toggle/issues"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "@justeat/f-dom": "0.3.0",
+    "closest": "0.0.1",
+    "lite-ready": "1.0.4"
+  },
+  "devDependencies": {
+    "@justeat/gulp-build-fozzie": "7.2.0",
+    "babel-cli": "6.26.0",
+    "babel-preset-babili": "0.1.4",
+    "babel-preset-env": "1.6.1",
+    "concurrently": "3.5.1",
+    "coveralls": "3.0.0",
+    "danger": "3.1.3",
+    "gulp": "3.9.1",
+    "js-test-buddy": "0.0.7"
+  },
+  "keywords": [
+    "fozzie"
+  ],
+  "scripts": {
+    "prepare": "concurrently -n \"lint,compile,test\" -c \"blue,yellow,green\" --kill-others-on-fail \"yarn lint\" \"yarn compile\" \"yarn run test\"",
+    "lint": "gulp scripts:lint",
+    "compile": "babel -d dist src",
+    "test": "gulp scripts:test:coverage",
+    "test:coveralls": "cat coverage/lcov.info | coveralls"
+  },
+  "browserslist": [
+    "> 5%",
+    "last 2 versions",
+    "Safari >= 8",
+    "not ie 10"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
+  }
+}
