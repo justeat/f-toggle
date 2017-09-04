@@ -12,5 +12,5 @@ before_script:
 script:
   - yarn test:cover
   
-after_success
+after_success:
   - yarn run test:cover:CI
