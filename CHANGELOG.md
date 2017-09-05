@@ -3,6 +3,20 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v0.1.0
+------------------------------
+*September 05, 2017*
+
+### Added
+- Added toggle function.
+- Added toggle function unit tests.
+- Added `compile` task.
+
+### Changed
+- Main function set to transpiled file.
+- `prestart` task now runs `lint`, `test`, and `compile` scripts.
+
+
 v0.0.1
 ------------------------------
 *September 04, 2017*
