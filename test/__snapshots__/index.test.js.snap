@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hide applies hidden class 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"hide:test\\"></button>
+        "
+`;
+
+exports[`hide can handle multiple specified targets 1`] = `
+"
+            <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
+            <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"hide:one hide:two\\"></button>
+        "
+`;
+
+exports[`hide can handle multiple targets 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"hide:test\\"></button>
+        "
+`;
+
+exports[`hide does nothing when element is already hidden 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"hide:test\\"></button>
+        "
+`;
+
+exports[`mixed toggles shows and hides elements correctly 1`] = `
+"
+            <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
+            <div data-toggle-name=\\"two\\" class=\\"\\"></div>
+            <div data-toggle-name=\\"three\\" class=\\"\\"></div>
+            <div data-toggle-name=\\"four\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"one two show:three hide:four\\"></button>
+        "
+`;
+
+exports[`show can handle multiple specified targets 1`] = `
+"
+            <div data-toggle-name=\\"one\\" class=\\"\\"></div>
+            <div data-toggle-name=\\"two\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"show:one show:two\\"></button>
+        "
+`;
+
+exports[`show can handle multiple targets 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"show:test\\"></button>
+        "
+`;
+
+exports[`show does nothing when element is already shown 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"show:test\\"></button>
+        "
+`;
+
+exports[`show removes hidden class 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"show:test\\"></button>
+        "
+`;
+
+exports[`toggle applies hidden class 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"test\\"></button>
+        "
+`;
+
+exports[`toggle can handle multiple specified targets 1`] = `
+"
+            <div data-toggle-name=\\"one\\" class=\\"\\"></div>
+            <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"one two\\"></button>
+        "
+`;
+
+exports[`toggle can handle multiple targets 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"test\\"></button>
+        "
+`;
+
+exports[`toggle removes hidden class 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"test\\"></button>
+        "
+`;
