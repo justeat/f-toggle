@@ -61,9 +61,9 @@ You can specify multiple targets and states by separating them with a space
 <a data-toggle-target="alpha beta hide:gamma show:delta">Trigger toggle</a>
 
 <div data-toggle-name="alpha">alpha</div>
-<div data-toggle-name="beta">alpha</div>
-<div data-toggle-name="gamma">alpha</div>
-<div data-toggle-name="delta">alpha</div>
+<div data-toggle-name="beta">beta</div>
+<div data-toggle-name="gamma">gamma</div>
+<div data-toggle-name="delta">delta</div>
 ```
 
 This will toggle the visibility of `alpha` & `beta`, hide `gamma`, and show `delta`.
