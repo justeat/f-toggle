@@ -4,7 +4,6 @@
  * @module utils
  */
 
-
 /**
  * Sets the HTML content of the body.
  *
@@ -12,23 +11,20 @@
  */
 export const setHtml = html => document.body.innerHTML = html;
 
-
 /**
  * Get the HTML content of the body.
  */
 export const getHtml = () => document.body.innerHTML;
-
 
 /**
  * Creates and dispatches a DOM event
  *
  * @param {Node} element
  * @param {string} name
- * @param {boolean} [bubbles=false] Indicating if the event bubbles or not.
- * @param {boolean} [cancelable=false] Indicating if the event can be canceled or not.
+ * @param {object} [detail={}}]
  *
  * @example
- * dispatchEvent(window, 'onEvent', { bubbles: true, cancelable: true });
+ * dispatchEvent(window, 'onEvent');
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Event|Event - MDN}
  */
