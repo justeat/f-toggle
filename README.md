@@ -6,3 +6,68 @@
 [![Dependency Status](https://gemnasium.com/badges/github.com/justeat/f-toggle.svg)](https://gemnasium.com/github.com/justeat/f-toggle)
 
 Fozzie vanilla JS toggle library.
+
+Visibility is set by applying the `is-hidden` class to the target element.
+
+## Adding `f-toggle` to your project
+
+```bash
+yarn add @justeat/f-toggle
+```
+
+Then, inside your script import and run `f-toggle`.
+
+```js
+import toggle from '@justeat/f-toggle';
+
+toggle();
+```
+
+## Setting up toggles
+
+To create a toggle add a `data-toggle-target` attribute to the element which is going to trigger the toggle
+
+```html
+<a data-toggle-target="toggle-me">Trigger toggle</a>
+```
+
+Then add a `data-toggle-name` attribute to the element which is going to be toggled
+
+```html
+<div data-toggle-name="toggle-me">I will be toggled</div>
+```
+
+### Showing elements
+
+You can use the `show:` prefix in order to show an element when clicked
+
+```html
+<a data-toggle-target="show:toggle-me">Trigger toggle</a>
+```
+
+### Hiding elements
+
+You can use the `hide:` prefix in order to hide an element when clicked
+
+```html
+<a data-toggle-target="hide:toggle-me">Trigger toggle</a>
+```
+
+### Multiple toggles
+
+You can specify multiple targets and states by separating them with a space
+
+```html
+<a data-toggle-target="alpha beta hide:gamma show:delta">Trigger toggle</a>
+
+<div data-toggle-name="alpha">alpha</div>
+<div data-toggle-name="beta">alpha</div>
+<div data-toggle-name="gamma">alpha</div>
+<div data-toggle-name="delta">alpha</div>
+```
+
+This will toggle the visibility of `alpha` & `beta`, hide `gamma`, and show `delta`.
+
+## Running the unit tests
+
+This module is [covered by a suite of unit tests](test/index.test.js). To run them simply run `yarn test` on the command line.
