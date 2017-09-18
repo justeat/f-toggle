@@ -3,6 +3,20 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v0.2.0
+------------------------------
+*September 18, 2017*
+
+### Added
+- Added `js-test-buddy` package.
+
+### Changed
+- Using test helper functions from `js-test-buddy` in unit tests.
+
+### Removed
+- Removed dom and test util scripts.
+
+
 v0.1.0
 ------------------------------
 *September 05, 2017*
