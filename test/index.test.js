@@ -1,5 +1,5 @@
 import toggle from '../src/index';
-import { setHtml, getHtml, dispatchEvent } from './utils';
+import TestUtils from 'js-test-buddy';
 
 
 describe('module', () => {
@@ -14,64 +14,69 @@ describe('toggle', () => {
 
     it('applies hidden class', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        const html = TestUtils.getHtml();
+        expect(html).toMatchSnapshot();
     });
 
     it('removes hidden class', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple targets', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple specified targets', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="one" class="is-hidden"></div>
             <div data-toggle-name="two"></div>
             <button data-toggle-target="one two"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
 });
@@ -80,64 +85,68 @@ describe('show', () => {
 
     it('does nothing when element is already shown', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="show:test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('removes hidden class', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="show:test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple targets', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="show:test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple specified targets', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="one" class="is-hidden"></div>
             <div data-toggle-name="two" class="is-hidden"></div>
             <button data-toggle-target="show:one show:two"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
 });
@@ -146,64 +155,68 @@ describe('hide', () => {
 
     it('does nothing when element is already hidden', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="hide:test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('applies hidden class', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="hide:test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple targets', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="hide:test"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple specified targets', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="one"></div>
             <div data-toggle-name="two"></div>
             <button data-toggle-target="hide:one hide:two"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
 });
@@ -212,20 +225,21 @@ describe('mixed toggles', () => {
 
     it('shows and hides elements correctly', () => {
         // Arrange
-        setHtml(`
+        TestUtils.setHtml(`
             <div data-toggle-name="one"></div>
             <div data-toggle-name="two" class="is-hidden"></div>
             <div data-toggle-name="three" class="is-hidden"></div>
             <div data-toggle-name="four"></div>
             <button data-toggle-target="one two show:three hide:four"></button>
         `);
+        const button = document.querySelector('button');
 
         // Act
         toggle();
-        dispatchEvent('click', { context: document.querySelector('button') });
+        TestUtils.click(button);
 
         // Assert
-        expect(getHtml()).toMatchSnapshot();
+        expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
 });

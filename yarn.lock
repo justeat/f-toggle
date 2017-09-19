@@ -3429,6 +3429,10 @@ doctrine@^2.0.0:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
+dom-buddy@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/dom-buddy/-/dom-buddy-1.0.2.tgz#c06a61fcb9fd3578d7c1c26e3ab77eead0aa1bc4"
+
 dom-serializer@0, dom-serializer@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.1.0.tgz#073c697546ce0780ce23be4a28e293e40bc30c82"
@@ -6460,6 +6464,12 @@ jpegtran-bin@^3.0.0:
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
+
+js-test-buddy@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/js-test-buddy/-/js-test-buddy-0.0.3.tgz#253e5411a2e8fda7ada1cfa91f891587602f53e9"
+  dependencies:
+    dom-buddy "^1.0.2"
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
