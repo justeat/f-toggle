@@ -1,7 +1,7 @@
 {
   "name": "@justeat/f-toggle",
   "description": "Fozzie vanilla JS toggle library.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "dist/index.js",
   "homepage": "https://github.com/justeat/f-toggle",
   "contributors": [
@@ -19,13 +19,16 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
+    "qwery": "^4.0.0"
+  },
+  "devDependencies": {
     "@justeat/gulp-build-fozzie": "^6.0.0",
     "babel-cli": "^6.26.0",
     "babel-preset-babili": "^0.1.4",
     "babel-preset-es2015": "^6.24.1",
+    "coveralls": "^2.13.1",
     "gulp": "^3.9.1",
-    "js-test-buddy": "^0.0.3",
-    "qwery": "^4.0.0"
+    "js-test-buddy": "^0.0.3"
   },
   "keywords": [
     "fozzie"
@@ -37,9 +40,6 @@
     "test:cover": "gulp scripts:test:coverage",
     "test:cover:CI": "cat coverage/lcov.info | coveralls",
     "lint": "gulp scripts:lint"
-  },
-  "devDependencies": {
-    "coveralls": "^2.13.1"
   },
   "jest": {
     "collectCoverageFrom": [
