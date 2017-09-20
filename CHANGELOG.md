@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v0.4.0
+------------------------------
+*September 20, 2017*
+
+### Changed
+- Moved build packages in `devDependencies`.
+
+
 v0.3.0
 ------------------------------
 *September 20, 2017*
