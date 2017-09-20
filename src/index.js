@@ -14,28 +14,28 @@
  * @property {object} show Shows an element.
  * @property {object} hide Hides an element.
  */
-const toggles = {
+const toggles = toggleClass => ({
     toggle (element) {
-        element.classList.toggle('is-hidden');
+        element.classList.toggle(toggleClass);
     },
 
     show (element) {
-        element.classList.remove('is-hidden');
+        element.classList.remove(toggleClass);
     },
 
     hide (element) {
-        element.classList.add('is-hidden');
+        element.classList.add(toggleClass);
     }
-};
+});
 
 /**
  * Handles the toggle element click events
  *
  * @param {string|string[]} targets
  */
-const handleToggles = targets => {
+const handleToggles = (targets, toggleClass) => {
     if (!Array.isArray(targets)) {
-        handleToggles(targets.split(' '));
+        handleToggles(targets.split(' '), toggleClass);
         return;
     }
 
@@ -46,8 +46,10 @@ const handleToggles = targets => {
             parts.unshift('toggle');
         }
 
-        $(`[data-toggle-name~=${parts[1]}]`)
-            .forEach(toggles[parts[0]]);
+        const [ toggleType, toggleName ] = parts;
+
+        $(`[data-toggle-name~=${toggleName}]`)
+            .forEach(toggles(toggleClass)[toggleType]);
     });
 
 };
@@ -61,7 +63,10 @@ export default () => {
             toggle.addEventListener('click', e => {
                 e.preventDefault();
 
-                handleToggles(toggle.getAttribute('data-toggle-target'));
+                const target = toggle.getAttribute('data-toggle-target');
+                const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
+
+                handleToggles(target, toggleClass);
             });
         });
 };

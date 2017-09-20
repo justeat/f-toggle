@@ -1,6 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`hide applies hidden class 1`] = `
+exports[`hide adds custom class 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"toggled\\"></div>
+            <button data-toggle-target=\\"hide:test\\" data-toggle-class=\\"toggled\\"></button>
+        "
+`;
+
+exports[`hide adds hidden class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <button data-toggle-target=\\"hide:test\\"></button>
@@ -63,6 +70,13 @@ exports[`show does nothing when element is already shown 1`] = `
         "
 `;
 
+exports[`show removes custom class 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"show:test\\" data-toggle-class=\\"toggled\\"></button>
+        "
+`;
+
 exports[`show removes hidden class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
@@ -70,7 +84,14 @@ exports[`show removes hidden class 1`] = `
         "
 `;
 
-exports[`toggle applies hidden class 1`] = `
+exports[`toggle adds custom class when specified 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"toggled\\"></div>
+            <button data-toggle-target=\\"test\\" data-toggle-class=\\"toggled\\"></button>
+        "
+`;
+
+exports[`toggle adds hidden class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <button data-toggle-target=\\"test\\"></button>
@@ -90,6 +111,13 @@ exports[`toggle can handle multiple targets 1`] = `
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
             <button data-toggle-target=\\"test\\"></button>
+        "
+`;
+
+exports[`toggle removes custom class when specified 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <button data-toggle-target=\\"test\\" data-toggle-class=\\"toggled\\"></button>
         "
 `;
 

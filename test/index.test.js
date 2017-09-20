@@ -12,7 +12,7 @@ describe('module', () => {
 
 describe('toggle', () => {
 
-    it('applies hidden class', () => {
+    it('adds hidden class', () => {
         // Arrange
         TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
@@ -34,6 +34,38 @@ describe('toggle', () => {
         TestUtils.setHtml(`
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="test"></button>
+        `);
+        const button = document.querySelector('button');
+
+        // Act
+        toggle();
+        TestUtils.click(button);
+
+        // Assert
+        expect(TestUtils.getHtml()).toMatchSnapshot();
+    });
+
+    it('adds custom class when specified', () => {
+        // Arrange
+        TestUtils.setHtml(`
+            <div data-toggle-name="test"></div>
+            <button data-toggle-target="test" data-toggle-class="toggled"></button>
+        `);
+        const button = document.querySelector('button');
+
+        // Act
+        toggle();
+        TestUtils.click(button);
+
+        // Assert
+        expect(TestUtils.getHtml()).toMatchSnapshot();
+    });
+
+    it('removes custom class when specified', () => {
+        // Arrange
+        TestUtils.setHtml(`
+            <div data-toggle-name="test" class="toggled"></div>
+            <button data-toggle-target="test" data-toggle-class="toggled"></button>
         `);
         const button = document.querySelector('button');
 
@@ -115,6 +147,22 @@ describe('show', () => {
         expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
+    it('removes custom class', () => {
+        // Arrange
+        TestUtils.setHtml(`
+            <div data-toggle-name="test" class="toggled"></div>
+            <button data-toggle-target="show:test" data-toggle-class="toggled"></button>
+        `);
+        const button = document.querySelector('button');
+
+        // Act
+        toggle();
+        TestUtils.click(button);
+
+        // Assert
+        expect(TestUtils.getHtml()).toMatchSnapshot();
+    });
+
     it('can handle multiple targets', () => {
         // Arrange
         TestUtils.setHtml(`
@@ -169,11 +217,27 @@ describe('hide', () => {
         expect(TestUtils.getHtml()).toMatchSnapshot();
     });
 
-    it('applies hidden class', () => {
+    it('adds hidden class', () => {
         // Arrange
         TestUtils.setHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="hide:test"></button>
+        `);
+        const button = document.querySelector('button');
+
+        // Act
+        toggle();
+        TestUtils.click(button);
+
+        // Assert
+        expect(TestUtils.getHtml()).toMatchSnapshot();
+    });
+
+    it('adds custom class', () => {
+        // Arrange
+        TestUtils.setHtml(`
+            <div data-toggle-name="test"></div>
+            <button data-toggle-target="hide:test" data-toggle-class="toggled"></button>
         `);
         const button = document.querySelector('button');
 
