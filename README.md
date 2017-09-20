@@ -68,6 +68,16 @@ You can specify multiple targets and states by separating them with a space
 
 This will toggle the visibility of `alpha` & `beta`, hide `gamma`, and show `delta`.
 
+### Toggle a custom class
+
+You can specify a custom toggle class by adding the `data-toggle-class` attribute
+
+```html
+<a data-toggle-target="toggle-me" data-toggle-class="toggled">Trigger toggle</a>
+```
+
+In this example the `toggled` class will be applied to the target element (rather than the default `is-hidden` class).
+
 ## Running the unit tests
 
 This module is [covered by a suite of unit tests](test/index.test.js). To run them simply run `yarn test` on the command line.
