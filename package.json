@@ -31,7 +31,7 @@
     "fozzie"
   ],
   "scripts": {
-    "prestart": "yarn run lint && yarn test && yarn run compile",
+    "prepare": "yarn run lint && yarn test && yarn run compile",
     "compile": "babel -d dist src",
     "test": "gulp scripts:test",
     "test:cover": "gulp scripts:test:coverage",
