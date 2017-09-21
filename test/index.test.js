@@ -29,6 +29,40 @@ describe('toggle', () => {
         expect(html).toMatchSnapshot();
     });
 
+    it('adds hidden class on keyboard enter press', () => {
+        // Arrange
+        TestUtils.setHtml(`
+            <div data-toggle-name="test"></div>
+            <button data-toggle-target="test"></button>
+        `);
+        const button = document.querySelector('button');
+
+        // Act
+        toggle();
+        TestUtils.pressEnter(button);
+
+        // Assert
+        const html = TestUtils.getHtml();
+        expect(html).toMatchSnapshot();
+    });
+
+    it('adds hidden class on keyboard spacebar press', () => {
+        // Arrange
+        TestUtils.setHtml(`
+            <div data-toggle-name="test"></div>
+            <button data-toggle-target="test"></button>
+        `);
+        const button = document.querySelector('button');
+
+        // Act
+        toggle();
+        TestUtils.pressSpacebar(button);
+
+        // Assert
+        const html = TestUtils.getHtml();
+        expect(html).toMatchSnapshot();
+    });
+
     it('removes hidden class', () => {
         // Arrange
         TestUtils.setHtml(`

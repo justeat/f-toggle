@@ -54,19 +54,27 @@ const handleToggles = (targets, toggleClass) => {
 
 };
 
+const onToggle = (e, toggle) => {
+    e.preventDefault();
+
+    const target = toggle.getAttribute('data-toggle-target');
+    const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
+
+    handleToggles(target, toggleClass);
+};
+
 /**
  * Bind the toggle element click events
  */
 export default () => {
     $('[data-toggle-target]')
         .forEach(toggle => {
-            toggle.addEventListener('click', e => {
-                e.preventDefault();
+            toggle.addEventListener('click', e => onToggle(e, toggle));
 
-                const target = toggle.getAttribute('data-toggle-target');
-                const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
-
-                handleToggles(target, toggleClass);
+            toggle.addEventListener('keydown', e => {
+                if (e.keyCode === 13 || e.keyCode === 32) {
+                    onToggle(e, toggle);
+                }
             });
         });
 };

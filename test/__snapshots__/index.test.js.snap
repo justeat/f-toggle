@@ -98,6 +98,20 @@ exports[`toggle adds hidden class 1`] = `
         "
 `;
 
+exports[`toggle adds hidden class on keyboard enter press 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"test\\"></button>
+        "
+`;
+
+exports[`toggle adds hidden class on keyboard spacebar press 1`] = `
+"
+            <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
+            <button data-toggle-target=\\"test\\"></button>
+        "
+`;
+
 exports[`toggle can handle multiple specified targets 1`] = `
 "
             <div data-toggle-name=\\"one\\" class=\\"\\"></div>
