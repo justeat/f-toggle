@@ -1,14 +1,17 @@
 /**
  * @overview Fozzie vanilla JS toggle library.
  *
- * @module toggle
+ * @module f-toggle
  */
 
- import $ from 'qwery';
+import ready from 'lite-ready';
+import $ from 'qwery';
 
 
 /**
  * Handles the toggle element click events
+ *
+ * @param {string} toggleClass
  *
  * @property {object} toggle Toggle an element's visibility.
  * @property {object} show Shows an element.
@@ -32,6 +35,7 @@ const toggles = toggleClass => ({
  * Handles the toggle element click events
  *
  * @param {string|string[]} targets
+ * @param {string} toggleClass
  */
 const handleToggles = (targets, toggleClass) => {
     if (!Array.isArray(targets)) {
@@ -46,7 +50,7 @@ const handleToggles = (targets, toggleClass) => {
             parts.unshift('toggle');
         }
 
-        const [ toggleType, toggleName ] = parts;
+        const [toggleType, toggleName] = parts;
 
         $(`[data-toggle-name~=${toggleName}]`)
             .forEach(toggles(toggleClass)[toggleType]);
@@ -54,10 +58,11 @@ const handleToggles = (targets, toggleClass) => {
 
 };
 
-/**
- * Bind the toggle element click events
- */
-export default () => {
+const setupToggle = () => {
+
+    /**
+     * Bind the toggle element click events
+     */
     $('[data-toggle-target]')
         .forEach(toggle => {
             toggle.addEventListener('click', e => {
@@ -69,4 +74,13 @@ export default () => {
                 handleToggles(target, toggleClass);
             });
         });
-};
+
+}
+
+ready(() => {
+
+    setupToggle();
+
+});
+
+export default setupToggle;
