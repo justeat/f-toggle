@@ -4,6 +4,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v0.6.0
+------------------------------
+*December 20, 2017*
+
+### Added
+- Added lint paths to build config.
+- Using `concurrently` to run npm scripts concurrently...!
+
+### Changed
+- Updated package versions.
+- Updated unit test helper function names.
+- Updated Travis config.
+- Tidied up npm scripts config.
+- Fixed ESlint issues.
+
+
+
 v0.5.0
 ------------------------------
 *September 21, 2017*

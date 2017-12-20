@@ -1,5 +1,5 @@
-import toggle from '../src/index';
 import TestUtils from 'js-test-buddy';
+import toggle from '../src/index';
 
 
 describe('module', () => {
@@ -14,7 +14,7 @@ describe('toggle', () => {
 
     it('adds hidden class', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="test"></button>
         `);
@@ -25,13 +25,13 @@ describe('toggle', () => {
         TestUtils.click(button);
 
         // Assert
-        const html = TestUtils.getHtml();
+        const html = TestUtils.getBodyHtml();
         expect(html).toMatchSnapshot();
     });
 
     it('removes hidden class', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="test"></button>
         `);
@@ -42,12 +42,12 @@ describe('toggle', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('adds custom class when specified', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="test" data-toggle-class="toggled"></button>
         `);
@@ -58,12 +58,12 @@ describe('toggle', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('removes custom class when specified', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test" class="toggled"></div>
             <button data-toggle-target="test" data-toggle-class="toggled"></button>
         `);
@@ -74,12 +74,12 @@ describe('toggle', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple targets', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="test"></button>
@@ -91,12 +91,12 @@ describe('toggle', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple specified targets', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="one" class="is-hidden"></div>
             <div data-toggle-name="two"></div>
             <button data-toggle-target="one two"></button>
@@ -108,7 +108,7 @@ describe('toggle', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
 });
@@ -117,7 +117,7 @@ describe('show', () => {
 
     it('does nothing when element is already shown', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="show:test"></button>
         `);
@@ -128,12 +128,12 @@ describe('show', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('removes hidden class', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="show:test"></button>
         `);
@@ -144,12 +144,12 @@ describe('show', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('removes custom class', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test" class="toggled"></div>
             <button data-toggle-target="show:test" data-toggle-class="toggled"></button>
         `);
@@ -160,12 +160,12 @@ describe('show', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple targets', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="show:test"></button>
@@ -177,12 +177,12 @@ describe('show', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple specified targets', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="one" class="is-hidden"></div>
             <div data-toggle-name="two" class="is-hidden"></div>
             <button data-toggle-target="show:one show:two"></button>
@@ -194,7 +194,7 @@ describe('show', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
 });
@@ -203,7 +203,7 @@ describe('hide', () => {
 
     it('does nothing when element is already hidden', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="hide:test"></button>
         `);
@@ -214,12 +214,12 @@ describe('hide', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('adds hidden class', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="hide:test"></button>
         `);
@@ -230,12 +230,12 @@ describe('hide', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('adds custom class', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <button data-toggle-target="hide:test" data-toggle-class="toggled"></button>
         `);
@@ -246,12 +246,12 @@ describe('hide', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple targets', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="test"></div>
             <div data-toggle-name="test" class="is-hidden"></div>
             <button data-toggle-target="hide:test"></button>
@@ -263,12 +263,12 @@ describe('hide', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
     it('can handle multiple specified targets', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="one"></div>
             <div data-toggle-name="two"></div>
             <button data-toggle-target="hide:one hide:two"></button>
@@ -280,7 +280,7 @@ describe('hide', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
 });
@@ -289,7 +289,7 @@ describe('mixed toggles', () => {
 
     it('shows and hides elements correctly', () => {
         // Arrange
-        TestUtils.setHtml(`
+        TestUtils.setBodyHtml(`
             <div data-toggle-name="one"></div>
             <div data-toggle-name="two" class="is-hidden"></div>
             <div data-toggle-name="three" class="is-hidden"></div>
@@ -303,7 +303,7 @@ describe('mixed toggles', () => {
         TestUtils.click(button);
 
         // Assert
-        expect(TestUtils.getHtml()).toMatchSnapshot();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
 });
