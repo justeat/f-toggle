@@ -4,6 +4,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v0.7.0
+------------------------------
+*January 16, 2018*
+
+### Added
+- `dangerfile.js` added to check PRs via Travis
+
+### Changed
+- Updated `gulp-build-fozzie` version
+
+
 v0.6.0
 ------------------------------
 *December 20, 2017*
@@ -18,7 +29,6 @@ v0.6.0
 - Updated Travis config.
 - Tidied up npm scripts config.
 - Fixed ESlint issues.
-
 
 
 v0.5.0
