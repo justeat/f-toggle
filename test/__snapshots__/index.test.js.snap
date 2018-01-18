@@ -57,7 +57,7 @@ exports[`show can handle multiple specified targets 1`] = `
 
 exports[`show can handle multiple targets 1`] = `
 "
-            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <div data-toggle-name=\\"test\\"></div>
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
             <button data-toggle-target=\\"show:test\\"></button>
         "
@@ -65,7 +65,7 @@ exports[`show can handle multiple targets 1`] = `
 
 exports[`show does nothing when element is already shown 1`] = `
 "
-            <div data-toggle-name=\\"test\\" class=\\"\\"></div>
+            <div data-toggle-name=\\"test\\"></div>
             <button data-toggle-target=\\"show:test\\"></button>
         "
 `;
