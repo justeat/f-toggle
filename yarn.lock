@@ -46,9 +46,9 @@
     glob "^7.1.2"
     mkdirp "^0.5.1"
 
-"@justeat/gulp-build-fozzie@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@justeat/gulp-build-fozzie/-/gulp-build-fozzie-7.0.0.tgz#4001f4fb41d6330daa64fbe73469d012832ea9c9"
+"@justeat/gulp-build-fozzie@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@justeat/gulp-build-fozzie/-/gulp-build-fozzie-7.1.0.tgz#af4a07d8e077c4f12582bb7057662410f3d61cd6"
   dependencies:
     "@justeat/eslint-config-fozzie" "^1.3.0"
     "@justeat/f-copy-assets" "^0.4.0"
