@@ -308,7 +308,7 @@ describe('mixed toggles', () => {
 
 });
 
-describe('hide all other elements in the specified group', () => {
+describe('handleHideAll', () => {
 
     it('should hide all other open elements, and toggle the element clicked', () => {
         // Arrange
