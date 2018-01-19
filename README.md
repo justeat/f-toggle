@@ -78,6 +78,20 @@ You can specify a custom toggle class by adding the `data-toggle-class` attribut
 
 In this example the `toggled` class will be applied to the target element (rather than the default `is-hidden` class).
 
+### Toggle target element, and hide all other elements in a group
+
+Rather than individually listing which elements you would like to hide, ie `data-toggle-target="hide:one hide:two"`, you 
+can apply attr `data-toggle-group-target="name"` to the toggle button, and attr `data-toggle-group="name"` to each 
+element. On clicking a toggle button the target item is toggled, and all other elements in the group are hidden. This 
+can be helpful if you have dynamic target names and multiple toggle buttons.
+
+```html
+<div data-toggle-name="one" data-toggle-group="groupName"></div>
+<div data-toggle-name="two" data-toggle-group="groupName"></div>
+<div data-toggle-name="three" data-toggle-group="groupName"></div>
+<button data-toggle-target="one" data-toggle-group-target="groupName"></button>
+```
+
 ## Running the unit tests
 
 This module is [covered by a suite of unit tests](test/index.test.js). To run them simply run `yarn test` on the command line.
