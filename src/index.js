@@ -58,6 +58,23 @@ const handleToggles = (targets, toggleClass) => {
 
 };
 
+/**
+ * Toggles the target you have clicked, and hides all other elements in the group
+ *
+ * @param {string} target
+ * @param {string} groupTarget
+ * @param {string} toggleClass
+ */
+const handleHideAll = (target, groupTarget, toggleClass) => {
+
+    $(`[data-toggle-group=${groupTarget}]`)
+        .forEach(element => {
+            const type = element.getAttribute('data-toggle-name') === target ? 'toggle' : 'hide';
+            toggles(toggleClass)[type](element);
+        });
+
+};
+
 const setupToggle = () => {
 
     /**
@@ -70,6 +87,12 @@ const setupToggle = () => {
 
                 const target = toggle.getAttribute('data-toggle-target');
                 const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
+                const groupTarget = toggle.getAttribute('data-toggle-group-target');
+
+                if (groupTarget) {
+                    handleHideAll(target, groupTarget, toggleClass);
+                    return;
+                }
 
                 handleToggles(target, toggleClass);
             });

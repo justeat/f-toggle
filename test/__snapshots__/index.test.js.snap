@@ -14,6 +14,16 @@ exports[`hide adds hidden class 1`] = `
         "
 `;
 
+exports[`hide all other elements in the specified group should hide all other open elements, and toggle the element clicked 1`] = `
+"
+            <div data-toggle-name=\\"one\\" class=\\"\\" data-toggle-group=\\"groupName\\"></div>
+            <div data-toggle-name=\\"two\\" data-toggle-group=\\"groupName\\" class=\\"is-hidden\\"></div>
+            <div data-toggle-name=\\"three\\" data-toggle-group=\\"groupName\\" class=\\"is-hidden\\"></div>
+            <div data-toggle-name=\\"four\\" data-toggle-group=\\"otherGroupName\\"></div>
+            <button data-toggle-target=\\"one\\" data-toggle-group-target=\\"groupName\\"></button>
+        "
+`;
+
 exports[`hide can handle multiple specified targets 1`] = `
 "
             <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>

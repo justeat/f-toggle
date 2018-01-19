@@ -307,3 +307,26 @@ describe('mixed toggles', () => {
     });
 
 });
+
+describe('hide all other elements in the specified group', () => {
+
+    it('should hide all other open elements, and toggle the element clicked', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+            <div data-toggle-name="one" class="is-hidden" data-toggle-group="groupName"></div>
+            <div data-toggle-name="two" data-toggle-group="groupName"></div>
+            <div data-toggle-name="three" data-toggle-group="groupName"></div>
+            <div data-toggle-name="four" data-toggle-group="otherGroupName"></div>
+            <button data-toggle-target="one" data-toggle-group-target="groupName"></button>
+        `);
+        const button = document.querySelector('button');
+
+        // Act
+        toggle();
+        TestUtils.click(button);
+
+        // Assert
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+    });
+
+});
