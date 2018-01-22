@@ -59,15 +59,18 @@ const handleToggles = (targets, toggleClass) => {
 };
 
 /**
- * Toggles the target you have clicked, and hides all other elements in the group
+ * Toggles the target you have clicked, and hides all other elements in the accordion
  *
  * @param {string} target
- * @param {string} groupTarget
  * @param {string} toggleClass
+ * @param {object} accordion
  */
-const handleHideAll = (target, groupTarget, toggleClass) => {
 
-    $(`[data-toggle-group=${groupTarget}]`)
+const handleAccordionToggles = (target, accordion) => {
+
+    const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
+
+    accordion.querySelectorAll('[data-toggle-name]')
         .forEach(element => {
             const type = element.getAttribute('data-toggle-name') === target ? 'toggle' : 'hide';
             toggles(toggleClass)[type](element);
@@ -78,8 +81,23 @@ const handleHideAll = (target, groupTarget, toggleClass) => {
 const setupToggle = () => {
 
     /**
+     * If accordion, only display first section on initialisation
+     */
+
+    $('[data-toggle-accordion]')
+        .forEach(accordion => {
+            const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
+            const sections = [...accordion.querySelectorAll('[data-toggle-name]')];
+
+            sections.splice(0, 1);
+            sections
+                .forEach(toggles(toggleClass).hide);
+        });
+
+    /**
      * Bind the toggle element click events
      */
+
     $('[data-toggle-target]')
         .forEach(toggle => {
             toggle.addEventListener('click', e => {
@@ -87,10 +105,10 @@ const setupToggle = () => {
 
                 const target = toggle.getAttribute('data-toggle-target');
                 const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
-                const groupTarget = toggle.getAttribute('data-toggle-group-target');
+                const accordion = toggle.closest('[data-toggle-accordion]');
 
-                if (groupTarget) {
-                    handleHideAll(target, groupTarget, toggleClass);
+                if (accordion) {
+                    handleAccordionToggles(target, accordion);
                     return;
                 }
 
