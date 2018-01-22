@@ -372,7 +372,7 @@ describe('accordion', () => {
     it('should hide all other open elements, and toggle the element clicked', () => {
         // Arrange
         TestUtils.setBodyHtml(`
-            <div data-toggle-accordion="">
+            <div data-toggle-accordion>
                 <div data-toggle-name="one"></div>
                 <button data-toggle-target="one"></button>
                 <div data-toggle-name="two"></div>

@@ -78,18 +78,23 @@ You can specify a custom toggle class by adding the `data-toggle-class` attribut
 
 In this example the `toggled` class will be applied to the target element (rather than the default `is-hidden` class).
 
-### Toggle target element, and hide all other elements in a group
+### Accordion
 
-Rather than individually listing which elements you would like to hide, ie `data-toggle-target="hide:one hide:two"`, you 
-can apply attr `data-toggle-group-target="name"` to the toggle button, and attr `data-toggle-group="name"` to each 
-element. On clicking a toggle button the target item is toggled, and all other elements in the group are hidden. This 
-can be helpful if you have dynamic target names and multiple toggle buttons.
+If you require accordion behaviour just wrap your content within an element containing `data-toggle-accordion`. 
+On clicking a button with `data-toggle-target` the target item will be toggled, and all other elements in the group 
+are hidden.
+
+In this instance you are then able to add `data-toggle-class` to the parent, ass opposed to each `data-toggle-target`.
 
 ```html
-<div data-toggle-name="one" data-toggle-group="groupName"></div>
-<div data-toggle-name="two" data-toggle-group="groupName"></div>
-<div data-toggle-name="three" data-toggle-group="groupName"></div>
-<button data-toggle-target="one" data-toggle-group-target="groupName"></button>
+<div data-toggle-accordion data-toggle-class="is-hidden">
+    <button data-toggle-target="one"></button>
+    <div data-toggle-name="one"></div>
+    <button data-toggle-target="two"></button>
+    <div data-toggle-name="two"></div>
+    <button data-toggle-target="three"></button>
+    <div data-toggle-name="three"></div>
+</div>
 ```
 
 ## Running the unit tests
