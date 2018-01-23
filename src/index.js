@@ -6,7 +6,7 @@
 
 import ready from 'lite-ready';
 import $ from 'qwery';
-
+import closest from 'closest';
 
 /**
  * Handles the toggle element click events
@@ -62,7 +62,6 @@ const handleToggles = (targets, toggleClass) => {
  * Toggles the target you have clicked, and hides all other elements in the accordion
  *
  * @param {string} target
- * @param {string} toggleClass
  * @param {object} accordion
  */
 
@@ -89,9 +88,9 @@ const setupToggle = () => {
             const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
             const sections = [...accordion.querySelectorAll('[data-toggle-name]')];
 
-            sections.splice(0, 1);
-            sections
+            sections.slice(1)
                 .forEach(toggles(toggleClass).hide);
+
         });
 
     /**
@@ -105,7 +104,7 @@ const setupToggle = () => {
 
                 const target = toggle.getAttribute('data-toggle-target');
                 const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
-                const accordion = toggle.closest('[data-toggle-accordion]');
+                const accordion = closest(toggle, '[data-toggle-accordion]');
 
                 if (accordion) {
                     handleAccordionToggles(target, accordion);

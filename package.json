@@ -19,6 +19,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
+    "closest": "^0.0.1",
     "lite-ready": "^1.0.4",
     "qwery": "^4.0.0"
   },

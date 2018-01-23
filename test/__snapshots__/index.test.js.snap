@@ -4,7 +4,7 @@ exports[`accordion should display only the first item on initialisation 1`] = `
 "
             <div data-toggle-accordion=\\"\\">
                 <div data-toggle-name=\\"one\\"></div>
-                <button data-toggle-target=\\"one\\" class=\\"is-selected\\"></button>
+                <button data-toggle-target=\\"one\\"></button>
                 <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
                 <button data-toggle-target=\\"two\\"></button>
             </div>
@@ -12,73 +12,6 @@ exports[`accordion should display only the first item on initialisation 1`] = `
 `;
 
 exports[`accordion should hide all other open elements, and toggle the element clicked 1`] = `
-"
-            <div data-toggle-accordion=\\"\\">
-                <div data-toggle-name=\\"one\\"></div>
-                <button data-toggle-target=\\"one\\" class=\\"is-selected\\"></button>
-                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"two\\"></button>
-                <div data-toggle-name=\\"three\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"three\\"></button>
-                <div data-toggle-name=\\"four\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"four\\"></button>
-            </div>
-        "
-`;
-
-exports[`accordion should hide all other open elements, and toggle the element clicked 2`] = `
-"
-            <div data-toggle-accordion=\\"\\">
-                <div data-toggle-name=\\"one\\"></div>
-                <button data-toggle-target=\\"one\\" class=\\"is-selected\\"></button>
-                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"two\\"></button>
-                <div data-toggle-name=\\"three\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"three\\"></button>
-                <div data-toggle-name=\\"four\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"four\\"></button>
-            </div>
-        "
-`;
-
-exports[`accordion should show first button is selected on initialisation 1`] = `
-"
-            <div data-toggle-accordion=\\"\\">
-                <div data-toggle-name=\\"one\\"></div>
-                <button data-toggle-target=\\"one\\" class=\\"is-selected\\"></button>
-                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"two\\"></button>
-            </div>
-        "
-`;
-
-exports[`accordion should update the button selected class on selecting new section 1`] = `
-"
-            <div data-toggle-accordion=\\"\\">
-                <div data-toggle-name=\\"one\\"></div>
-                <button data-toggle-target=\\"one\\" class=\\"is-selected\\"></button>
-                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"two\\"></button>
-            </div>
-        "
-`;
-
-exports[`handleHideAll should display only the first item on initialisation 1`] = `
-"
-            <div data-toggle-accordion=\\"\\">
-                <div data-toggle-name=\\"one\\"></div>
-                <button data-toggle-target=\\"one\\"></button>
-                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"two\\"></button>
-                <div data-toggle-name=\\"three\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"three\\"></button>
-                <div data-toggle-name=\\"four\\" class=\\"is-hidden\\"></div>
-                <button data-toggle-target=\\"four\\"></button>
-            </div>
-        "
-`;
-
-exports[`handleHideAll should hide all other open elements, and toggle the element clicked 1`] = `
 "
             <div data-toggle-accordion=\\"\\">
                 <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
@@ -93,7 +26,7 @@ exports[`handleHideAll should hide all other open elements, and toggle the eleme
         "
 `;
 
-exports[`handleHideAll should hide all other open elements, and toggle the element clicked 2`] = `
+exports[`accordion should hide all other open elements, and toggle the element clicked 2`] = `
 "
             <div data-toggle-accordion=\\"\\">
                 <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
@@ -104,6 +37,17 @@ exports[`handleHideAll should hide all other open elements, and toggle the eleme
                 <button data-toggle-target=\\"three\\"></button>
                 <div data-toggle-name=\\"four\\" class=\\"is-hidden\\"></div>
                 <button data-toggle-target=\\"four\\"></button>
+            </div>
+        "
+`;
+
+exports[`accordion should update the button selected class on selecting new section 1`] = `
+"
+            <div data-toggle-accordion=\\"\\">
+                <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
             </div>
         "
 `;

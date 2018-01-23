@@ -329,25 +329,6 @@ describe('accordion', () => {
         expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
-    it('should show first button is selected on initialisation', () => {
-
-        // Arrange
-        TestUtils.setBodyHtml(`
-            <div data-toggle-accordion>
-                <div data-toggle-name="one"></div>
-                <button data-toggle-target="one"></button>
-                <div data-toggle-name="two"></div>
-                <button data-toggle-target="two"></button>
-            </div>
-        `);
-
-        // Act
-        toggle();
-
-        // Assert
-        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
-    });
-
     it('should update the button selected class on selecting new section', () => {
 
         // Arrange
@@ -359,11 +340,11 @@ describe('accordion', () => {
                 <button data-toggle-target="two"></button>
             </div>
         `);
-        const buttons = document.querySelectorAll('button');
+        const [, button2] = document.querySelectorAll('button');
 
         // Act
         toggle();
-        TestUtils.click(buttons[1]);
+        TestUtils.click(button2);
 
         // Assert
         expect(TestUtils.getBodyHtml()).toMatchSnapshot();
@@ -383,15 +364,15 @@ describe('accordion', () => {
                 <button data-toggle-target="four"></button>
             </div>
         `);
-        const buttons = document.querySelectorAll('button');
+        const [, button2, button3] = document.querySelectorAll('button');
 
         // Act & Assert
         toggle();
-        TestUtils.click(buttons[2]);
+        TestUtils.click(button3);
         expect(TestUtils.getBodyHtml()).toMatchSnapshot();
 
         // Act & Assert
-        TestUtils.click(buttons[1]);
+        TestUtils.click(button2);
         expect(TestUtils.getBodyHtml()).toMatchSnapshot();
     });
 
