@@ -69,7 +69,8 @@ const handleAccordionToggles = (target, accordion) => {
 
     const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
 
-    accordion.querySelectorAll('[data-toggle-name]')
+    Array.from(accordion.querySelectorAll('[data-toggle-name]'))
+        .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
         .forEach(element => {
             const type = element.getAttribute('data-toggle-name') === target ? 'toggle' : 'hide';
             toggles(toggleClass)[type](element);
@@ -86,9 +87,10 @@ const setupToggle = () => {
     $('[data-toggle-accordion]')
         .forEach(accordion => {
             const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
-            const sections = [...accordion.querySelectorAll('[data-toggle-name]')];
 
-            sections.slice(1)
+            Array.from(accordion.querySelectorAll('[data-toggle-name]'))
+                .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
+                .slice(1)
                 .forEach(toggles(toggleClass).hide);
 
         });
@@ -104,9 +106,10 @@ const setupToggle = () => {
 
                 const target = toggle.getAttribute('data-toggle-target');
                 const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
+                const accordionExclude = toggle.hasAttribute('data-toggle-accordion-exclude');
                 const accordion = closest(toggle, '[data-toggle-accordion]');
 
-                if (accordion) {
+                if (accordion && !accordionExclude) {
                     handleAccordionToggles(target, accordion);
                     return;
                 }

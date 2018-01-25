@@ -41,6 +41,68 @@ exports[`accordion should hide all other open elements, and toggle the element c
         "
 `;
 
+exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 1`] = `
+"
+            <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
+                <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" data-toggle-accordion-exclude=\\"\\"></div>
+                <button data-toggle-target=\\"two\\" data-toggle-accordion-exclude=\\"\\"></button>
+                <div data-toggle-name=\\"three\\" class=\\"\\"></div>
+                <button data-toggle-target=\\"three\\"></button>
+                <div data-toggle-name=\\"four\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"four\\"></button>
+            </div>
+        "
+`;
+
+exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 2`] = `
+"
+            <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
+                <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" data-toggle-accordion-exclude=\\"\\" class=\\"is-hidden\\"></div>
+                <button data-toggle-target=\\"two\\" data-toggle-accordion-exclude=\\"\\"></button>
+                <div data-toggle-name=\\"three\\" class=\\"\\"></div>
+                <button data-toggle-target=\\"three\\"></button>
+                <div data-toggle-name=\\"four\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"four\\"></button>
+            </div>
+        "
+`;
+
+exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 3`] = `
+"
+            <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
+                <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"\\">
+                    <div data-toggle-name=\\"nested\\" data-toggle-accordion-exclude=\\"\\"></div>
+                    <button data-toggle-target=\\"nested\\" data-toggle-accordion-exclude=\\"\\"></button>
+                </div>
+                <button data-toggle-target=\\"two\\"></button>
+                <div data-toggle-name=\\"three\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"three\\"></button>
+            </div>
+        "
+`;
+
+exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 4`] = `
+"
+            <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
+                <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"\\">
+                    <div data-toggle-name=\\"nested\\" data-toggle-accordion-exclude=\\"\\" class=\\"is-hidden\\"></div>
+                    <button data-toggle-target=\\"nested\\" data-toggle-accordion-exclude=\\"\\"></button>
+                </div>
+                <button data-toggle-target=\\"two\\"></button>
+                <div data-toggle-name=\\"three\\" class=\\"accordion--hide\\"></div>
+                <button data-toggle-target=\\"three\\"></button>
+            </div>
+        "
+`;
+
 exports[`accordion should update the button selected class on selecting new section 1`] = `
 "
             <div data-toggle-accordion=\\"\\">
