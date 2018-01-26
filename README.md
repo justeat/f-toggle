@@ -97,6 +97,23 @@ In this instance you are then able to add `data-toggle-class` to the parent, ass
 </div>
 ```
 
+#### Exclude toggle items from accordion
+
+In the situation you have a toggle item within an accordion element, but you do not want it to adopt the accordion 
+behaviour, simply add `data-toggle-accordion-exclude`:
+
+```html
+<div data-toggle-accordion>
+    <div data-toggle-name="one"></div>
+    <button data-toggle-target="one"></button>
+    <div data-toggle-name="two">
+        <div data-toggle-name="nested" data-toggle-accordion-exclude></div>
+        <button data-toggle-target="nested" data-toggle-accordion-exclude></button>
+    </div>
+    <button data-toggle-target="two"></button>
+</div>
+```
+
 ## Running the unit tests
 
 This module is [covered by a suite of unit tests](test/index.test.js). To run them simply run `yarn test` on the command line.
