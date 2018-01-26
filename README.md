@@ -78,6 +78,42 @@ You can specify a custom toggle class by adding the `data-toggle-class` attribut
 
 In this example the `toggled` class will be applied to the target element (rather than the default `is-hidden` class).
 
+### Accordion
+
+If you require accordion behaviour just wrap your content within an element containing `data-toggle-accordion`. 
+On clicking a button with `data-toggle-target` the target item will be toggled, and all other elements in the group 
+are hidden.
+
+In this instance you are then able to add `data-toggle-class` to the parent, ass opposed to each `data-toggle-target`.
+
+```html
+<div data-toggle-accordion data-toggle-class="is-hidden">
+    <button data-toggle-target="one"></button>
+    <div data-toggle-name="one"></div>
+    <button data-toggle-target="two"></button>
+    <div data-toggle-name="two"></div>
+    <button data-toggle-target="three"></button>
+    <div data-toggle-name="three"></div>
+</div>
+```
+
+#### Exclude toggle items from accordion
+
+In the situation you have a toggle item within an accordion element, but you do not want it to adopt the accordion 
+behaviour, simply add `data-toggle-accordion-exclude`:
+
+```html
+<div data-toggle-accordion>
+    <div data-toggle-name="one"></div>
+    <button data-toggle-target="one"></button>
+    <div data-toggle-name="two">
+        <div data-toggle-name="nested" data-toggle-accordion-exclude></div>
+        <button data-toggle-target="nested" data-toggle-accordion-exclude></button>
+    </div>
+    <button data-toggle-target="two"></button>
+</div>
+```
+
 ## Running the unit tests
 
 This module is [covered by a suite of unit tests](test/index.test.js). To run them simply run `yarn test` on the command line.

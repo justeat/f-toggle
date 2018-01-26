@@ -6,7 +6,7 @@
 
 import ready from 'lite-ready';
 import $ from 'qwery';
-
+import closest from 'closest';
 
 /**
  * Handles the toggle element click events
@@ -58,11 +58,47 @@ const handleToggles = (targets, toggleClass) => {
 
 };
 
+/**
+ * Toggles the target you have clicked, and hides all other elements in the accordion
+ *
+ * @param {string} target
+ * @param {object} accordion
+ */
+
+const handleAccordionToggles = (target, accordion) => {
+
+    const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
+
+    $('[data-toggle-name]', accordion)
+        .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
+        .forEach(element => {
+            const type = element.getAttribute('data-toggle-name') === target ? 'toggle' : 'hide';
+            toggles(toggleClass)[type](element);
+        });
+
+};
+
 const setupToggle = () => {
+
+    /**
+     * If accordion, only display first section on initialisation
+     */
+
+    $('[data-toggle-accordion]')
+        .forEach(accordion => {
+            const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
+
+            $('[data-toggle-name]', accordion)
+                .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
+                .slice(1)
+                .forEach(toggles(toggleClass).hide);
+
+        });
 
     /**
      * Bind the toggle element click events
      */
+
     $('[data-toggle-target]')
         .forEach(toggle => {
             toggle.addEventListener('click', e => {
@@ -70,6 +106,13 @@ const setupToggle = () => {
 
                 const target = toggle.getAttribute('data-toggle-target');
                 const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
+                const accordionExclude = toggle.hasAttribute('data-toggle-accordion-exclude');
+                const accordion = closest(toggle, '[data-toggle-accordion]');
+
+                if (accordion && !accordionExclude) {
+                    handleAccordionToggles(target, accordion);
+                    return;
+                }
 
                 handleToggles(target, toggleClass);
             });

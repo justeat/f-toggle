@@ -307,3 +307,126 @@ describe('mixed toggles', () => {
     });
 
 });
+
+describe('accordion', () => {
+
+    it('should display only the first item on initialisation', () => {
+
+        // Arrange
+        TestUtils.setBodyHtml(`
+            <div data-toggle-accordion>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two"></div>
+                <button data-toggle-target="two"></button>
+            </div>
+        `);
+
+        // Act
+        toggle();
+
+        // Assert
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+    });
+
+    it('should update the button selected class on selecting new section', () => {
+
+        // Arrange
+        TestUtils.setBodyHtml(`
+            <div data-toggle-accordion>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two"></div>
+                <button data-toggle-target="two"></button>
+            </div>
+        `);
+        const [, button2] = document.querySelectorAll('button');
+
+        // Act
+        toggle();
+        TestUtils.click(button2);
+
+        // Assert
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+    });
+
+    it('should hide all other open elements, and toggle the element clicked', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+            <div data-toggle-accordion>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two"></div>
+                <button data-toggle-target="two"></button>
+                <div data-toggle-name="three"></div>
+                <button data-toggle-target="three"></button>
+                <div data-toggle-name="four"></div>
+                <button data-toggle-target="four"></button>
+            </div>
+        `);
+        const [, button2, button3] = document.querySelectorAll('button');
+
+        // Act & Assert
+        toggle();
+        TestUtils.click(button3);
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+        // Act & Assert
+        TestUtils.click(button2);
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+    });
+
+    it('should not apply accordion behaviour to elements with \'data-toggle-accordion-exclude\'', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+            <div data-toggle-accordion data-toggle-class="accordion--hide">
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two" data-toggle-accordion-exclude></div>
+                <button data-toggle-target="two" data-toggle-accordion-exclude></button>
+                <div data-toggle-name="three"></div>
+                <button data-toggle-target="three"></button>
+                <div data-toggle-name="four"></div>
+                <button data-toggle-target="four"></button>
+            </div>
+        `);
+        const [, button2, button3] = document.querySelectorAll('button');
+
+        // Act & Assert
+        toggle();
+        TestUtils.click(button3);
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+        // Act & Assert
+        TestUtils.click(button2);
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+    });
+
+    it('should not apply accordion behaviour to elements with \'data-toggle-accordion-exclude\'', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+            <div data-toggle-accordion data-toggle-class="accordion--hide">
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two">
+                    <div data-toggle-name="nested" data-toggle-accordion-exclude></div>
+                    <button data-toggle-target="nested" data-toggle-accordion-exclude></button>
+                </div>
+                <button data-toggle-target="two"></button>
+                <div data-toggle-name="three"></div>
+                <button data-toggle-target="three"></button>
+            </div>
+        `);
+        const [, button2, button3] = document.querySelectorAll('button');
+
+        // Act & Assert
+        toggle();
+        TestUtils.click(button3);
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+        // Act & Assert
+        TestUtils.click(button2);
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+    });
+
+});
