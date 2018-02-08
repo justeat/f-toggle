@@ -74,4 +74,4 @@ export {
     toggles,
     handleToggles,
     handleAccordionToggles
-}
+};

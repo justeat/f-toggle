@@ -27,7 +27,7 @@ describe('class', () => {
 
             // Act
             setupToggle();
-            new Toggle('container', options);
+            new Toggle('container', options); // eslint-disable-line no-new
             TestUtils.click(button);
 
             // Assert
@@ -51,7 +51,7 @@ describe('class', () => {
 
             // Act
             setupToggle();
-            new Toggle('container', {});
+            new Toggle('container', {}); // eslint-disable-line no-new
             TestUtils.click(button);
 
             // Assert

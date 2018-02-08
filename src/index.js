@@ -4,10 +4,10 @@
  * @module f-toggle
  */
 
+import $ from 'qwery';
 import ready from 'lite-ready';
 import closest from 'closest';
 import setupToggle from './setupToggle';
-import $ from 'qwery';
 
 export default class Toggle {
 
@@ -25,6 +25,7 @@ export default class Toggle {
          * @type {object}
          */
         this.options = {
+
             onToggle: options.onToggle || null
         };
 
@@ -42,7 +43,7 @@ export default class Toggle {
                 .forEach(toggle => {
                     toggle.addEventListener('click', () => {
                         this.options.onToggle.call(this);
-                    })
+                    });
                 });
         }
 
