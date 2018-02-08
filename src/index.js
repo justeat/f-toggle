@@ -28,8 +28,13 @@ export default class Toggle {
             onToggle: options.onToggle || null
         };
 
+        this.init();
+    }
+
+    init () {
+
         /**
-         * Add addEventListener to onToggle method
+         * Add addEventListener to 'click' event if onToggle method exists
          */
 
         if (typeof this.options.onToggle === 'function') {
@@ -40,8 +45,8 @@ export default class Toggle {
                     })
                 });
         }
-    }
 
+    }
 }
 
 ready(() => {

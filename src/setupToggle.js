@@ -1,10 +1,6 @@
 import $ from 'qwery';
 import closest from 'closest';
-import {
-    toggles,
-    handleToggles,
-    handleAccordionToggles
-} from './helpers';
+import { toggles, handleToggles, handleAccordionToggles } from './helpers';
 
 export default () => {
 
