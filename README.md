@@ -116,4 +116,4 @@ behaviour, simply add `data-toggle-accordion-exclude`:
 
 ## Running the unit tests
 
-This module is [covered by a suite of unit tests](test/index.test.js). To run them simply run `yarn test` on the command line.
+This module is [covered by a suite of unit tests](test). To run them simply run `yarn test` on the command line.
