@@ -4,51 +4,57 @@
  * @module f-toggle
  */
 
-import $ from 'qwery';
+import $ from '@justeat/f-dom';
 import ready from 'lite-ready';
-import closest from 'closest';
 import setupToggle from './setupToggle';
+import { handleAccordionToggles, handleToggles } from './helpers';
 
-export default class Toggle {
+const toggleAccordion = (selector, target) => {
+    handleAccordionToggles(target, $.first(selector), 'show');
+};
 
+const toggleSection = (target, toggleClass = 'is-hidden') => {
+    handleToggles(target, toggleClass);
+};
+
+const onToggle = (selector, callback) => {
+
+    const container = $.first(selector);
+    const isAccordion = container.hasAttribute('data-toggle-accordion');
     /**
-     * @param {string} container
-     * @param {object} [options={}]
+     * Add addEventListener to 'click' event if onToggle method exists
      */
-    constructor (container, options = {}) {
 
-        this.container = closest(document, '[data-toggle-accordion]');
-
-        /**
-         * Define options – can be passed in or set as defaults
-         *
-         * @type {object}
-         */
-        this.options = {
-
-            onToggle: options.onToggle || null
-        };
-
-        this.init();
+    if (typeof callback !== 'function') {
+        throw new Error('f-toggle: callback expects a function');
     }
 
-    init () {
+    if (isAccordion) {
 
-        /**
-         * Add addEventListener to 'click' event if onToggle method exists
-         */
-
-        if (typeof this.options.onToggle === 'function') {
-            $('[data-toggle-target]', this.container)
-                .forEach(toggle => {
-                    toggle.addEventListener('click', () => {
-                        this.options.onToggle.call(this);
-                    });
+        $('[data-toggle-target]', container)
+            .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
+            .forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    callback.call(this, toggle);
                 });
-        }
+            });
+
+    } else {
+
+        container.addEventListener('click', () => {
+            callback.call(this, container);
+        });
 
     }
-}
+
+
+};
+
+export {
+    toggleAccordion,
+    toggleSection,
+    onToggle
+};
 
 ready(() => {
 

@@ -84,7 +84,7 @@ If you require accordion behaviour just wrap your content within an element cont
 On clicking a button with `data-toggle-target` the target item will be toggled, and all other elements in the group 
 are hidden.
 
-In this instance you are then able to add `data-toggle-class` to the parent, ass opposed to each `data-toggle-target`.
+In this instance you are then able to add `data-toggle-class` to the parent, as opposed to each `data-toggle-target`.
 
 ```html
 <div data-toggle-accordion data-toggle-class="is-hidden">
@@ -113,6 +113,33 @@ behaviour, simply add `data-toggle-accordion-exclude`:
     <button data-toggle-target="two"></button>
 </div>
 ```
+
+## Methods
+
+### onToggle
+
+Call the onToggle method passing the `selector` and `callback` to run custom logic on the `click` events
+
+```javascript
+onToggle('.selector', callback);
+````
+
+### toggleAccordion
+
+Call the toggleAccordion method passing the accordion `selector` and `section identifier`. This will display the
+chosen accordion section, and hide all others.
+
+```javascript
+toggleAccordion('.selector', 'two');
+````
+
+### toggleSection
+
+Call the toggleSection method passing `visibility options`, and an optional `toggle class`.
+
+```javascript
+toggleSection('hide:one hide:two', 'is-hidden-custom');
+````
 
 ## Running the unit tests
 

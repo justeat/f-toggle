@@ -1,62 +1,151 @@
 import TestUtils from 'js-test-buddy';
-import Toggle from '../src/index';
+import { onToggle, toggleAccordion, toggleSection } from '../src';
 import setupToggle from '../src/setupToggle';
 
-describe('class', () => {
+describe('toggleAccordion', () => {
 
-    it('is a function', () => {
-        expect(typeof Toggle).toBe('function');
+    it('should toggle section on calling method', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+            <div data-toggle-accordion>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two"></div>
+                <button data-toggle-target="two"></button>
+            </div>
+        `);
+
+        // Act & Assert
+        setupToggle();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+        // Act & Assert
+        toggleAccordion('[data-toggle-accordion]', 'two');
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
     });
 
-    describe('onToggle', () => {
+});
 
-        it('should call assigned method on clicking component', () => {
-            // Arrange
-            TestUtils.setBodyHtml(`
+describe('toggleSection', () => {
+
+    it('should toggle section(s) on calling method', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two"></div>
+                <button data-toggle-target="two"></button>
+            `);
+
+        // Act & Assert
+        setupToggle();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+        // Act & Assert
+        toggleSection('hide:one hide:two');
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+    });
+
+    it('should toggle section(s) on calling method with custom class', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+                <div data-toggle-name="two"></div>
+                <button data-toggle-target="two"></button>
+            `);
+
+        // Act & Assert
+        setupToggle();
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+        // Act & Assert
+        toggleSection('hide:one hide:two', 'is-hidden-custom');
+        expect(TestUtils.getBodyHtml()).toMatchSnapshot();
+
+    });
+
+});
+
+describe('onToggle', () => {
+
+    it('should call assigned method on clicking accordion component', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
              <div data-toggle-accordion>
                 <div data-toggle-name="one"></div>
                 <button data-toggle-target="one"></button>
             </div>
         `);
-            const button = document.querySelector('button');
-            const options = {
-                onToggle: () => {
-                }
-            };
-            const spy = jest.spyOn(options, 'onToggle');
+        const button = document.querySelector('button');
+        const options = {
+            onToggle: () => {
+            }
+        };
+        const spy = jest.spyOn(options, 'onToggle');
 
-            // Act
-            setupToggle();
-            new Toggle('container', options); // eslint-disable-line no-new
-            TestUtils.click(button);
-
-            // Assert
-            expect(spy).toHaveBeenCalled();
+        // Act
+        setupToggle();
+        onToggle('[data-toggle-accordion]', () => {
+            options.onToggle();
         });
+        TestUtils.click(button);
 
-        it('should not call assigned method if not passed into options', () => {
-            // Arrange
-            TestUtils.setBodyHtml(`
+        // Assert
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('should not call assigned method if not passed into accordion options', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
              <div data-toggle-accordion>
                 <div data-toggle-name="one"></div>
                 <button data-toggle-target="one"></button>
             </div>
         `);
-            const button = document.querySelector('button');
-            const options = {
-                onToggle: () => {
-                }
-            };
-            const spy = jest.spyOn(options, 'onToggle');
+        const button = document.querySelector('button');
+        const options = {
+            onToggle: () => {
+            }
+        };
+        const spy = jest.spyOn(options, 'onToggle');
 
-            // Act
-            setupToggle();
-            new Toggle('container', {}); // eslint-disable-line no-new
-            TestUtils.click(button);
-
-            // Assert
-            expect(spy).not.toHaveBeenCalled();
+        // Act
+        setupToggle();
+        onToggle('[data-toggle-accordion]', () => {
         });
+        TestUtils.click(button);
 
+        // Assert
+        expect(spy).not.toHaveBeenCalled();
     });
+
+    it('should call assigned method on clicking component section', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+             <div>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+            </div>
+        `);
+        const button = document.querySelector('button');
+        const options = {
+            onToggle: () => {
+            }
+        };
+        const spy = jest.spyOn(options, 'onToggle');
+
+        // Act
+        setupToggle();
+        onToggle('[data-toggle-target]', () => {
+            options.onToggle();
+        });
+        TestUtils.click(button);
+
+        // Assert
+        expect(spy).toHaveBeenCalled();
+    });
+
 });

@@ -9,8 +9,7 @@ v0.11.0
 *February 9, 2018*
 
 ### Added
-- Component class
-- onToggle method to be passed in and called when toggling elements
+- toggleSection / toggleAccordion / onToggle methods
 
 
 v0.10.0

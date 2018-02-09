@@ -19,6 +19,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
+    "@justeat/f-dom": "^0.3.0",
     "closest": "^0.0.1",
     "lite-ready": "^1.0.4",
     "qwery": "^4.0.0"
