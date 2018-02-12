@@ -81,15 +81,15 @@ describe('onToggle', () => {
         `);
         const button = document.querySelector('button');
         const options = {
-            onToggle: () => {
+            callbackFn: () => {
             }
         };
-        const spy = jest.spyOn(options, 'onToggle');
+        const spy = jest.spyOn(options, 'callbackFn');
 
         // Act
         setupToggle();
         onToggle('[data-toggle-accordion]', () => {
-            options.onToggle();
+            options.callbackFn();
         });
         TestUtils.click(button);
 
@@ -107,10 +107,10 @@ describe('onToggle', () => {
         `);
         const button = document.querySelector('button');
         const options = {
-            onToggle: () => {
+            callbackFn: () => {
             }
         };
-        const spy = jest.spyOn(options, 'onToggle');
+        const spy = jest.spyOn(options, 'callbackFn');
 
         // Act
         setupToggle();
@@ -132,20 +132,37 @@ describe('onToggle', () => {
         `);
         const button = document.querySelector('button');
         const options = {
-            onToggle: () => {
-            }
+            callbackFn: () => {}
         };
-        const spy = jest.spyOn(options, 'onToggle');
+        const spy = jest.spyOn(options, 'callbackFn');
 
         // Act
         setupToggle();
         onToggle('[data-toggle-target]', () => {
-            options.onToggle();
+            options.callbackFn();
         });
         TestUtils.click(button);
 
         // Assert
         expect(spy).toHaveBeenCalled();
+    });
+
+    it('should throw error if calling without passing a callback', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+             <div>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+            </div>
+        `);
+
+        // Act
+        setupToggle();
+
+        // Assert
+        expect(() => {
+            onToggle('[data-toggle-target]');
+        }).toThrowError('f-toggle: callback expects a function');
     });
 
 });
