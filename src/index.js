@@ -21,9 +21,6 @@ const onToggle = (selector, callback) => {
 
     const container = $.first(selector);
     const isAccordion = container.hasAttribute('data-toggle-accordion');
-    /**
-     * Add addEventListener to 'click' event if onToggle method exists
-     */
 
     if (typeof callback !== 'function') {
         throw new Error('f-toggle: callback expects a function');

@@ -6,11 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v0.11.0
 ------------------------------
-*February 9, 2018*
+*February 12, 2018*
 
 ### Added
 - toggleSection / toggleAccordion / onToggle methods
 
+### Changed
+- Structure of module to expose helper methods in index.js, and move set up logic to setupToggle.js
 
 v0.10.0
 ------------------------------

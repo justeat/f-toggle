@@ -33,12 +33,9 @@ export default () => {
                 const accordionExclude = toggle.hasAttribute('data-toggle-accordion-exclude');
                 const accordion = closest(toggle, '[data-toggle-accordion]');
 
-                if (accordion && !accordionExclude) {
-                    handleAccordionToggles(target, accordion);
-                    return;
-                }
-
-                handleToggles(target, toggleClass);
+                return (accordion && !accordionExclude)
+                    ? handleAccordionToggles(target, accordion)
+                    : handleToggles(target, toggleClass);
             });
         });
 
