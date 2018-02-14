@@ -9,7 +9,7 @@ v0.11.0
 *February 12, 2018*
 
 ### Added
-- toggleSection / toggleAccordion / onToggle methods
+- toggleSection / toggleAccordion / setToggleCallback methods
 
 ### Changed
 - Structure of module to expose helper methods in helpers/external.js, and moved internal helpers to helpers/internal.js

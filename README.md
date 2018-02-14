@@ -116,12 +116,12 @@ behaviour, simply add `data-toggle-accordion-exclude`:
 
 ## Methods
 
-### onToggle
+### setToggleCallback
 
-Call the onToggle method passing the `selector` and `callback` to run custom logic on the `click` events
+Call the setToggleCallback method passing the `selector` and `callback` to run custom logic on the `click` events
 
 ```javascript
-onToggle('.selector', callback);
+setToggleCallback('.selector', callback);
 ````
 
 ### toggleAccordion
