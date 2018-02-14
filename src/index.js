@@ -6,51 +6,55 @@
 
 import $ from '@justeat/f-dom';
 import ready from 'lite-ready';
-import setupToggle from './setupToggle';
-import { handleAccordionToggles, handleToggles } from './helpers';
+import closest from 'closest';
+import { toggles, handleAccordionToggles, handleToggles } from './helpers/internal';
+import { toggleAccordion, toggleSection, setToggleCallback } from './helpers/external';
 
-const toggleAccordion = (selector, target) => {
-    handleAccordionToggles(target, $.first(selector), 'show');
-};
+const setupToggle = () => {
 
-const toggleSection = (target, toggleClass = 'is-hidden') => {
-    handleToggles(target, toggleClass);
-};
+    /**
+     * If accordion, only display first section on initialisation
+     */
 
-const onToggle = (selector, callback) => {
+    $('[data-toggle-accordion]')
+        .forEach(accordion => {
+            const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
 
-    const container = $.first(selector);
-    const isAccordion = container.hasAttribute('data-toggle-accordion');
+            $('[data-toggle-name]', accordion)
+                .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
+                .slice(1)
+                .forEach(toggles(toggleClass).hide);
 
-    if (typeof callback !== 'function') {
-        throw new Error('f-toggle: callback expects a function');
-    }
-
-    if (isAccordion) {
-
-        $('[data-toggle-target]', container)
-            .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
-            .forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    callback.call(this, toggle);
-                });
-            });
-
-    } else {
-
-        container.addEventListener('click', () => {
-            callback.call(this, container);
         });
 
-    }
+    /**
+     * Bind the toggle element click events
+     */
 
+    $('[data-toggle-target]')
+        .forEach(toggle => {
+            toggle.addEventListener('click', e => {
+                e.preventDefault();
+
+                const target = toggle.getAttribute('data-toggle-target');
+                const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
+                const accordionExclude = toggle.hasAttribute('data-toggle-accordion-exclude');
+                const accordion = closest(toggle, '[data-toggle-accordion]');
+
+                return (accordion && !accordionExclude)
+                    ? handleAccordionToggles(target, accordion)
+                    : handleToggles(target, toggleClass);
+            });
+        });
 
 };
 
+
 export {
+    setupToggle,
     toggleAccordion,
     toggleSection,
-    onToggle
+    setToggleCallback
 };
 
 ready(() => {

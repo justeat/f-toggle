@@ -1,7 +1,11 @@
-import $ from 'qwery';
+import $ from '@justeat/f-dom';
 
 /**
- * Handles the toggle element click events
+ * Toggles, shows or hides elements by adding/removing 'toggleClass'
+ *
+ * @example <caption>This would call the 'show' method, removing the class 'is-hidden-custom' from the element</caption>
+ *
+ * toggles('is-hidden-custom')['show'](element);
  *
  * @param {string} toggleClass
  *
@@ -24,7 +28,12 @@ const toggles = toggleClass => ({
 });
 
 /**
- * Handles the toggle element click events
+ * Applies toggle behaviour to referenced 'data-toggle-name' elements based on options passed in
+ *
+ * @example <caption>This would attach the 'show' method to the 'data-toggle-name="one"' element, and
+ * attach the 'hide' method to the 'data-toggle-name="two"' element</caption
+ *
+ * handleToggles('show:one hide:two', 'is-hidden-custom');
  *
  * @param {string|string[]} targets
  * @param {string} toggleClass
@@ -53,11 +62,14 @@ const handleToggles = (targets, toggleClass) => {
 /**
  * Toggles the target you have clicked, and hides all other elements in the accordion
  *
+ * @example <caption>This would toggle the section 'one', and close all other accordion sections
+ *
+ * handleAccordionToggles('one', element);
+ *
  * @param {string} target
  * @param {object} accordion
  * @param {string} visibility
  */
-
 const handleAccordionToggles = (target, accordion, visibility = 'toggle') => {
 
     const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';

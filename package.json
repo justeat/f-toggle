@@ -21,8 +21,7 @@
   "dependencies": {
     "@justeat/f-dom": "^0.3.0",
     "closest": "^0.0.1",
-    "lite-ready": "^1.0.4",
-    "qwery": "^4.0.0"
+    "lite-ready": "^1.0.4"
   },
   "devDependencies": {
     "@justeat/gulp-build-fozzie": "^7.2.0",
@@ -42,7 +41,7 @@
     "prepare": "concurrently -n \"lint,compile,test\" -c \"blue,yellow,green\" --kill-others-on-fail \"yarn lint\" \"yarn compile\" \"yarn run test\"",
     "lint": "gulp scripts:lint",
     "compile": "babel -d dist src",
-    "test": "gulp scripts:test:coverage",
+    "test": "jest --watch --coverage",
     "test:coveralls": "cat coverage/lcov.info | coveralls"
   },
   "browserslist": [
