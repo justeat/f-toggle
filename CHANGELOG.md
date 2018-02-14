@@ -12,7 +12,7 @@ v0.11.0
 - toggleSection / toggleAccordion / onToggle methods
 
 ### Changed
-- Structure of module to expose helper methods in index.js, and move set up logic to setupToggle.js
+- Structure of module to expose helper methods in helpers/external.js, and moved internal helpers to helpers/internal.js
 
 v0.10.0
 ------------------------------

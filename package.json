@@ -41,7 +41,7 @@
     "prepare": "concurrently -n \"lint,compile,test\" -c \"blue,yellow,green\" --kill-others-on-fail \"yarn lint\" \"yarn compile\" \"yarn run test\"",
     "lint": "gulp scripts:lint",
     "compile": "babel -d dist src",
-    "test": "jest --watch --coverage",
+    "test": "gulp scripts:test:coverage",
     "test:coveralls": "cat coverage/lcov.info | coveralls"
   },
   "browserslist": [
