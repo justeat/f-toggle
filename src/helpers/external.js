@@ -68,6 +68,10 @@ const setToggleCallback = (selector, callback) => {
         throw new Error('f-toggle: callback expects a function');
     }
 
+    if (!isAccordion && !container.hasAttribute('data-toggle-target')) {
+        throw new Error('f-toggle: this element is missing a \'data-toggle-accordion\' or \'data-toggle-target\' attribute');
+    }
+
     if (isAccordion) {
 
         $('[data-toggle-target]', container)

@@ -131,7 +131,8 @@ describe('setToggleCallback', () => {
         `);
         const button = document.querySelector('button');
         const options = {
-            callbackFn: () => {}
+            callbackFn: () => {
+            }
         };
         const spy = jest.spyOn(options, 'callbackFn');
 
@@ -144,6 +145,26 @@ describe('setToggleCallback', () => {
 
         // Assert
         expect(spy).toHaveBeenCalled();
+    });
+
+    it('should throw error if element is missing a \'data-toggle-accordion\' or \'data-toggle-target\' attribute', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+             <div>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+            </div>
+        `);
+
+        // Act
+        setupToggle();
+
+        // Assert
+        expect(() => {
+            setToggleCallback('div', () => {
+            });
+        }).toThrowError('f-toggle: this element is missing a \'data-toggle-accordion\' or \'data-toggle-target\' attribute');
+
     });
 
     it('should throw error if calling without passing a callback', () => {

@@ -118,24 +118,67 @@ behaviour, simply add `data-toggle-accordion-exclude`:
 
 ### setToggleCallback
 
-Call the setToggleCallback method passing the `selector` and `callback` to run custom logic on the `click` events
+Allows user to run callback when a section is toggled.
+
+#### Arguments
+**Selector**  
+Type: string  
+Example: `.selector`  
+Specify the section or accordion to set a callback on when a `click` event is fired on it
+
+**Callback**  
+Type: function  
+Example: `() => {
+    callbackFn();
+}`  
+The callback to be executed on clicking the section
 
 ```javascript
-setToggleCallback('.selector', callback);
-````
+// This would call the callback if any section within the accordion is toggled
+setToggleCallback('[data-toggle-accordion]', () => {
+  callbackFn();
+});
+
+// This would call the callback if the section is toggled
+
+setToggleCallback('[data-toggle-target]', () => {
+  callbackFn();
+});
+```
 
 ### toggleAccordion
 
-Call the toggleAccordion method passing the accordion `selector` and `section identifier`. This will display the
-chosen accordion section, and hide all others.
+Toggles the accordion sections, displaying the section specified and closing all others
+
+#### Arguments
+**Selector**  
+Type: string  
+Example: `.accordion`  
+Specify the accordion to toggle
+
+**Section**  
+Type: string  
+Example: `two`  
+Specify the name of the section to be shown. This will be the value of the data-toggle-name attribute
 
 ```javascript
-toggleAccordion('.selector', 'two');
+toggleAccordion('.accordion', 'two');
 ````
 
 ### toggleSection
 
-Call the toggleSection method passing `visibility options`, and an optional `toggle class`.
+Toggles sections based on the options passed in
+
+#### Arguments
+**Options**  
+Type: string  
+Example: `hide:one hide:two`  
+Specify the sections to toggle/show/hide
+
+**Class**  
+Type: string  
+Example: `is-hidden-custom`  
+Specify the toggle class to be added/removed from sections
 
 ```javascript
 toggleSection('hide:one hide:two', 'is-hidden-custom');
