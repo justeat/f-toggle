@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toggleAccordion should toggle section on calling method 1`] = `
+"
+            <div data-toggle-accordion=\\"\\">
+                <div data-toggle-name=\\"one\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
+            </div>
+        "
+`;
+
+exports[`toggleAccordion should toggle section on calling method 2`] = `
+"
+            <div data-toggle-accordion=\\"\\">
+                <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
+            </div>
+        "
+`;
+
+exports[`toggleSection should toggle section(s) on calling method 1`] = `
+"
+                <div data-toggle-name=\\"one\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
+            "
+`;
+
+exports[`toggleSection should toggle section(s) on calling method 2`] = `
+"
+                <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
+            "
+`;
+
+exports[`toggleSection should toggle section(s) on calling method with custom class 1`] = `
+"
+                <div data-toggle-name=\\"one\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
+            "
+`;
+
+exports[`toggleSection should toggle section(s) on calling method with custom class 2`] = `
+"
+                <div data-toggle-name=\\"one\\" class=\\"is-hidden-custom\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"is-hidden-custom\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
+            "
+`;

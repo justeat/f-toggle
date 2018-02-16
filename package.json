@@ -1,7 +1,7 @@
 {
   "name": "@justeat/f-toggle",
   "description": "Fozzie vanilla JS toggle library.",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "dist/index.js",
   "homepage": "https://github.com/justeat/f-toggle",
   "contributors": [
@@ -19,9 +19,9 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
+    "@justeat/f-dom": "^0.3.0",
     "closest": "^0.0.1",
-    "lite-ready": "^1.0.4",
-    "qwery": "^4.0.0"
+    "lite-ready": "^1.0.4"
   },
   "devDependencies": {
     "@justeat/gulp-build-fozzie": "^7.2.0",

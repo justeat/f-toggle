@@ -84,7 +84,7 @@ If you require accordion behaviour just wrap your content within an element cont
 On clicking a button with `data-toggle-target` the target item will be toggled, and all other elements in the group 
 are hidden.
 
-In this instance you are then able to add `data-toggle-class` to the parent, ass opposed to each `data-toggle-target`.
+In this instance you are then able to add `data-toggle-class` to the parent, as opposed to each `data-toggle-target`.
 
 ```html
 <div data-toggle-accordion data-toggle-class="is-hidden">
@@ -114,6 +114,81 @@ behaviour, simply add `data-toggle-accordion-exclude`:
 </div>
 ```
 
+## Methods
+
+### setToggleCallback
+
+Allows user to run callback when a section is toggled.
+
+#### Arguments
+**Selector**  
+Specify the section or accordion to set a callback on when a `click` event is fired on it
+
+* Type: string  
+* Example: `.selector`
+
+**Callback**  
+The callback to be executed on clicking the section
+
+* Type: function  
+* Example: `() => {
+    callbackFn();
+}`
+
+```javascript
+// This would call the callback if any section within the accordion is toggled
+setToggleCallback('[data-toggle-accordion]', () => {
+  callbackFn();
+});
+
+// This would call the callback if the section is toggled
+setToggleCallback('[data-toggle-target]', () => {
+  callbackFn();
+});
+```
+
+### toggleAccordion
+
+Toggles the accordion sections, displaying the section specified and closing all others
+
+#### Arguments
+**Selector**  
+Specify the accordion to toggle
+
+* Type: string  
+* Example: `.accordion`
+
+**Section**  
+Specify the name of the section to be shown. This will be the value of the data-toggle-name attribute
+
+* Type: string  
+* Example: `two`
+
+```javascript
+toggleAccordion('.accordion', 'two');
+````
+
+### toggleSection
+
+Toggles sections based on the options passed in
+
+#### Arguments
+**Options**  
+Specify the sections to toggle/show/hide
+
+* Type: string  
+* Example: `hide:one hide:two`
+
+**Class**  
+Specify the toggle class to be added/removed from sections
+
+* Type: string  
+* Example: `is-hidden-custom`
+
+```javascript
+toggleSection('hide:one hide:two', 'is-hidden-custom');
+````
+
 ## Running the unit tests
 
-This module is [covered by a suite of unit tests](test/index.test.js). To run them simply run `yarn test` on the command line.
+This module is [covered by a suite of unit tests](test). To run them simply run `yarn test` on the command line.

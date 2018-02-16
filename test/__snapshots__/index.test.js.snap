@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`accordion should display only the first item on initialisation 1`] = `
+exports[`setupToggle accordion should display only the first item on initialisation 1`] = `
 "
             <div data-toggle-accordion=\\"\\">
                 <div data-toggle-name=\\"one\\"></div>
@@ -11,7 +11,7 @@ exports[`accordion should display only the first item on initialisation 1`] = `
         "
 `;
 
-exports[`accordion should hide all other open elements, and toggle the element clicked 1`] = `
+exports[`setupToggle accordion should hide all other open elements, and toggle the element clicked 1`] = `
 "
             <div data-toggle-accordion=\\"\\">
                 <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
@@ -26,7 +26,7 @@ exports[`accordion should hide all other open elements, and toggle the element c
         "
 `;
 
-exports[`accordion should hide all other open elements, and toggle the element clicked 2`] = `
+exports[`setupToggle accordion should hide all other open elements, and toggle the element clicked 2`] = `
 "
             <div data-toggle-accordion=\\"\\">
                 <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
@@ -41,7 +41,7 @@ exports[`accordion should hide all other open elements, and toggle the element c
         "
 `;
 
-exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 1`] = `
+exports[`setupToggle accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 1`] = `
 "
             <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
                 <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
@@ -56,7 +56,7 @@ exports[`accordion should not apply accordion behaviour to elements with 'data-t
         "
 `;
 
-exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 2`] = `
+exports[`setupToggle accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 2`] = `
 "
             <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
                 <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
@@ -71,7 +71,7 @@ exports[`accordion should not apply accordion behaviour to elements with 'data-t
         "
 `;
 
-exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 3`] = `
+exports[`setupToggle accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 3`] = `
 "
             <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
                 <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
@@ -87,7 +87,7 @@ exports[`accordion should not apply accordion behaviour to elements with 'data-t
         "
 `;
 
-exports[`accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 4`] = `
+exports[`setupToggle accordion should not apply accordion behaviour to elements with 'data-toggle-accordion-exclude' 4`] = `
 "
             <div data-toggle-accordion=\\"\\" data-toggle-class=\\"accordion--hide\\">
                 <div data-toggle-name=\\"one\\" class=\\"accordion--hide\\"></div>
@@ -103,7 +103,7 @@ exports[`accordion should not apply accordion behaviour to elements with 'data-t
         "
 `;
 
-exports[`accordion should update the button selected class on selecting new section 1`] = `
+exports[`setupToggle accordion should update the button selected class on selecting new section 1`] = `
 "
             <div data-toggle-accordion=\\"\\">
                 <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
@@ -114,21 +114,21 @@ exports[`accordion should update the button selected class on selecting new sect
         "
 `;
 
-exports[`hide adds custom class 1`] = `
+exports[`setupToggle hide method adds custom class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"toggled\\"></div>
             <button data-toggle-target=\\"hide:test\\" data-toggle-class=\\"toggled\\"></button>
         "
 `;
 
-exports[`hide adds hidden class 1`] = `
+exports[`setupToggle hide method adds hidden class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <button data-toggle-target=\\"hide:test\\"></button>
         "
 `;
 
-exports[`hide can handle multiple specified targets 1`] = `
+exports[`setupToggle hide method can handle multiple specified targets 1`] = `
 "
             <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
             <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
@@ -136,7 +136,7 @@ exports[`hide can handle multiple specified targets 1`] = `
         "
 `;
 
-exports[`hide can handle multiple targets 1`] = `
+exports[`setupToggle hide method can handle multiple targets 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
@@ -144,14 +144,14 @@ exports[`hide can handle multiple targets 1`] = `
         "
 `;
 
-exports[`hide does nothing when element is already hidden 1`] = `
+exports[`setupToggle hide method does nothing when element is already hidden 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <button data-toggle-target=\\"hide:test\\"></button>
         "
 `;
 
-exports[`mixed toggles shows and hides elements correctly 1`] = `
+exports[`setupToggle mixed toggles shows and hides elements correctly 1`] = `
 "
             <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
             <div data-toggle-name=\\"two\\" class=\\"\\"></div>
@@ -161,7 +161,7 @@ exports[`mixed toggles shows and hides elements correctly 1`] = `
         "
 `;
 
-exports[`show can handle multiple specified targets 1`] = `
+exports[`setupToggle show method can handle multiple specified targets 1`] = `
 "
             <div data-toggle-name=\\"one\\" class=\\"\\"></div>
             <div data-toggle-name=\\"two\\" class=\\"\\"></div>
@@ -169,7 +169,7 @@ exports[`show can handle multiple specified targets 1`] = `
         "
 `;
 
-exports[`show can handle multiple targets 1`] = `
+exports[`setupToggle show method can handle multiple targets 1`] = `
 "
             <div data-toggle-name=\\"test\\"></div>
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
@@ -177,42 +177,42 @@ exports[`show can handle multiple targets 1`] = `
         "
 `;
 
-exports[`show does nothing when element is already shown 1`] = `
+exports[`setupToggle show method does nothing when element is already shown 1`] = `
 "
             <div data-toggle-name=\\"test\\"></div>
             <button data-toggle-target=\\"show:test\\"></button>
         "
 `;
 
-exports[`show removes custom class 1`] = `
+exports[`setupToggle show method removes custom class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
             <button data-toggle-target=\\"show:test\\" data-toggle-class=\\"toggled\\"></button>
         "
 `;
 
-exports[`show removes hidden class 1`] = `
+exports[`setupToggle show method removes hidden class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
             <button data-toggle-target=\\"show:test\\"></button>
         "
 `;
 
-exports[`toggle adds custom class when specified 1`] = `
+exports[`setupToggle toggle method adds custom class when specified 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"toggled\\"></div>
             <button data-toggle-target=\\"test\\" data-toggle-class=\\"toggled\\"></button>
         "
 `;
 
-exports[`toggle adds hidden class 1`] = `
+exports[`setupToggle toggle method adds hidden class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <button data-toggle-target=\\"test\\"></button>
         "
 `;
 
-exports[`toggle can handle multiple specified targets 1`] = `
+exports[`setupToggle toggle method can handle multiple specified targets 1`] = `
 "
             <div data-toggle-name=\\"one\\" class=\\"\\"></div>
             <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
@@ -220,7 +220,7 @@ exports[`toggle can handle multiple specified targets 1`] = `
         "
 `;
 
-exports[`toggle can handle multiple targets 1`] = `
+exports[`setupToggle toggle method can handle multiple targets 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"is-hidden\\"></div>
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
@@ -228,14 +228,14 @@ exports[`toggle can handle multiple targets 1`] = `
         "
 `;
 
-exports[`toggle removes custom class when specified 1`] = `
+exports[`setupToggle toggle method removes custom class when specified 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
             <button data-toggle-target=\\"test\\" data-toggle-class=\\"toggled\\"></button>
         "
 `;
 
-exports[`toggle removes hidden class 1`] = `
+exports[`setupToggle toggle method removes hidden class 1`] = `
 "
             <div data-toggle-name=\\"test\\" class=\\"\\"></div>
             <button data-toggle-target=\\"test\\"></button>
