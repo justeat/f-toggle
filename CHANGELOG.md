@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v0.11.0
 ------------------------------
-*February 15, 2018*
+*February 16, 2018*
 
 ### Added
 - toggleSection / toggleAccordion / setToggleCallback methods

@@ -87,38 +87,11 @@ describe('setToggleCallback', () => {
 
         // Act
         setupToggle();
-        setToggleCallback('[data-toggle-accordion]', () => {
-            options.callbackFn();
-        });
+        setToggleCallback('[data-toggle-accordion]', options.callbackFn);
         TestUtils.click(button);
 
         // Assert
         expect(spy).toHaveBeenCalled();
-    });
-
-    it('should not call assigned method if not passed into accordion options', () => {
-        // Arrange
-        TestUtils.setBodyHtml(`
-             <div data-toggle-accordion>
-                <div data-toggle-name="one"></div>
-                <button data-toggle-target="one"></button>
-            </div>
-        `);
-        const button = document.querySelector('button');
-        const options = {
-            callbackFn: () => {
-            }
-        };
-        const spy = jest.spyOn(options, 'callbackFn');
-
-        // Act
-        setupToggle();
-        setToggleCallback('[data-toggle-accordion]', () => {
-        });
-        TestUtils.click(button);
-
-        // Assert
-        expect(spy).not.toHaveBeenCalled();
     });
 
     it('should call assigned method on clicking component section', () => {
@@ -138,9 +111,7 @@ describe('setToggleCallback', () => {
 
         // Act
         setupToggle();
-        setToggleCallback('[data-toggle-target]', () => {
-            options.callbackFn();
-        });
+        setToggleCallback('[data-toggle-target]', options.callbackFn);
         TestUtils.click(button);
 
         // Assert
