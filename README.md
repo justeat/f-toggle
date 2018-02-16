@@ -122,16 +122,18 @@ Allows user to run callback when a section is toggled.
 
 #### Arguments
 **Selector**  
-Type: string  
-Example: `.selector`  
 Specify the section or accordion to set a callback on when a `click` event is fired on it
 
+* Type: string  
+* Example: `.selector`
+
 **Callback**  
-Type: function  
-Example: `() => {
-    callbackFn();
-}`  
 The callback to be executed on clicking the section
+
+* Type: function  
+* Example: `() => {
+    callbackFn();
+}`
 
 ```javascript
 // This would call the callback if any section within the accordion is toggled
@@ -140,7 +142,6 @@ setToggleCallback('[data-toggle-accordion]', () => {
 });
 
 // This would call the callback if the section is toggled
-
 setToggleCallback('[data-toggle-target]', () => {
   callbackFn();
 });
@@ -152,14 +153,16 @@ Toggles the accordion sections, displaying the section specified and closing all
 
 #### Arguments
 **Selector**  
-Type: string  
-Example: `.accordion`  
 Specify the accordion to toggle
 
+* Type: string  
+* Example: `.accordion`
+
 **Section**  
-Type: string  
-Example: `two`  
 Specify the name of the section to be shown. This will be the value of the data-toggle-name attribute
+
+* Type: string  
+* Example: `two`
 
 ```javascript
 toggleAccordion('.accordion', 'two');
@@ -171,14 +174,16 @@ Toggles sections based on the options passed in
 
 #### Arguments
 **Options**  
-Type: string  
-Example: `hide:one hide:two`  
 Specify the sections to toggle/show/hide
 
+* Type: string  
+* Example: `hide:one hide:two`
+
 **Class**  
-Type: string  
-Example: `is-hidden-custom`  
 Specify the toggle class to be added/removed from sections
+
+* Type: string  
+* Example: `is-hidden-custom`
 
 ```javascript
 toggleSection('hide:one hide:two', 'is-hidden-custom');
