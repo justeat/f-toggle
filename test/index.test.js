@@ -428,4 +428,203 @@ describe('setupToggle', () => {
 
     });
 
+    describe('keydown', () => {
+
+        it('should toggle section on pressing \'enter\'', () => {
+            // Arrange
+            TestUtils.setBodyHtml(`
+            <div data-toggle-name="test" class="is-hidden"></div>
+            <button data-toggle-target="test"></button>
+        `);
+            const button = document.querySelector('button');
+
+            // Act
+            setupToggle();
+            const event = new KeyboardEvent('keydown', {
+                which: 13
+            });
+            button.dispatchEvent(event);
+
+            // Assert
+            const html = TestUtils.getBodyHtml();
+            expect(html).toMatchSnapshot();
+        });
+
+        it('should toggle accordion section on pressing \'enter\'', () => {
+            // Arrange
+            TestUtils.setBodyHtml(`
+                <div data-toggle-accordion>
+                    <div data-toggle-name="one" class="is-hidden"></div>
+                    <button data-toggle-target="one"></button>
+                    <div data-toggle-name="two"></div>
+                    <button data-toggle-target="two"></button>
+                    <div data-toggle-name="three"></div>
+                    <button data-toggle-target="three"></button>
+                    <div data-toggle-name="four"></div>
+                    <button data-toggle-target="four"></button>
+                </div>
+            `);
+            const button = document.querySelector('button');
+
+            // Act
+            setupToggle();
+            const event = new KeyboardEvent('keydown', {
+                which: 13
+            });
+            button.dispatchEvent(event);
+
+            // Assert
+            const html = TestUtils.getBodyHtml();
+            expect(html).toMatchSnapshot();
+        });
+
+        it('should toggle accordion section on pressing \'enter\'', () => {
+            // Arrange
+            TestUtils.setBodyHtml(`
+                <div data-toggle-accordion>
+                    <div data-toggle-name="one" class="is-hidden">
+                        <button data-toggle-target="one"></button>
+                        <input />
+                    </div>
+                    <div data-toggle-name="two">
+                        <button data-toggle-target="two"></button>
+                    </div>
+                </div>
+            `);
+            const button = document.querySelector('button');
+
+            // Act
+            setupToggle();
+            const event = new KeyboardEvent('keydown', {
+                which: 13
+            });
+            button.dispatchEvent(event);
+
+            // Assert
+            const html = TestUtils.getBodyHtml();
+            expect(html).toMatchSnapshot();
+        });
+
+        it('should focus on the next section when pressing \'tab\'', () => {
+            // Arrange
+            TestUtils.setBodyHtml(`
+                <div data-toggle-accordion>
+                    <div data-toggle-name="one" class="is-hidden">
+                        <button data-toggle-target="one"></button>
+                        <input name="one" />
+                    </div>
+                    <div data-toggle-name="two">
+                        <button data-toggle-target="two"></button>
+                        <input name="two" />
+                    </div>
+                </div>
+            `);
+            const [button1, button2] = document.querySelectorAll('button');
+
+            // Act
+            setupToggle();
+            const tabEvent = new KeyboardEvent('keydown', {
+                which: 9,
+                shiftKey: false
+            });
+            button1.dispatchEvent(tabEvent);
+
+            // Assert
+            expect(document.activeElement).toEqual(button2);
+        });
+
+        it('should not focus on the next section when pressing \'tab\' and the current section is visible', () => {
+            // Arrange
+            TestUtils.setBodyHtml(`
+                <div data-toggle-accordion>
+                    <div data-toggle-name="one">
+                        <button data-toggle-target="one"></button>
+                        <input name="one" />
+                    </div>
+                    <div data-toggle-name="two" class="is-hidden">
+                        <button data-toggle-target="two"></button>
+                        <input name="two" />
+                    </div>
+                </div>
+            `);
+            const [button1, button2] = document.querySelectorAll('button');
+
+            // Act
+            setupToggle();
+            const tabEvent = new KeyboardEvent('keydown', {
+                which: 9,
+                shiftKey: false
+            });
+            button1.dispatchEvent(tabEvent);
+
+            // Assert
+            expect(document.activeElement).not.toEqual(button2);
+        });
+
+        it('should focus on the previous section when pressing \'shift\' & \'tab\'', () => {
+            // Arrange
+            TestUtils.setBodyHtml(`
+                <div data-toggle-accordion>
+                    <div data-toggle-name="one" class="is-hidden">
+                        <button data-toggle-target="one"></button>
+                        <input name="one" />
+                    </div>
+                    <div data-toggle-name="two">
+                        <button data-toggle-target="two"></button>
+                        <input name="two" />
+                    </div>
+                    <div data-toggle-name="three" class="is-hidden">
+                        <button data-toggle-target="three"></button>
+                        <input name="three" />
+                    </div>
+                </div>
+            `);
+            const [button1, button2] = document.querySelectorAll('button');
+
+            // Act
+            setupToggle();
+            const tabEvent = new KeyboardEvent('keydown', {
+                which: 9,
+                shiftKey: true
+            });
+            button2.dispatchEvent(tabEvent);
+
+            // Assert
+            expect(document.activeElement).toEqual(button1);
+        });
+
+        it('should not focus on the previous section when pressing \'shift\' & \'tab\' and the previous section is visible', () => {
+            // Arrange
+            TestUtils.setBodyHtml(`
+                <div data-toggle-accordion>
+                    <div data-toggle-name="one">
+                        <button data-toggle-target="one"></button>
+                        <input name="one" />
+                    </div>
+                    <div data-toggle-name="two" class="is-hidden">
+                        <button data-toggle-target="two"></button>
+                        <input name="two" />
+                    </div>
+                    <div data-toggle-name="three" class="is-hidden">
+                        <button data-toggle-target="three"></button>
+                        <input name="three" />
+                    </div>
+                </div>
+            `);
+            const [button1, button2] = document.querySelectorAll('button');
+
+            // Act
+            setupToggle();
+            const tabEvent = new KeyboardEvent('keydown', {
+                which: 9,
+                shiftKey: true
+            });
+            button2.dispatchEvent(tabEvent);
+
+            // Assert
+            expect(document.activeElement).not.toEqual(button1);
+        });
+
+    });
+
 });
