@@ -441,7 +441,7 @@ describe('setupToggle', () => {
             // Act
             setupToggle();
             const event = new KeyboardEvent('keydown', {
-                which: 13
+                key: 'Enter'
             });
             button.dispatchEvent(event);
 
@@ -469,7 +469,7 @@ describe('setupToggle', () => {
             // Act
             setupToggle();
             const event = new KeyboardEvent('keydown', {
-                which: 13
+                key: 'Enter'
             });
             button.dispatchEvent(event);
 
@@ -496,7 +496,7 @@ describe('setupToggle', () => {
             // Act
             setupToggle();
             const event = new KeyboardEvent('keydown', {
-                which: 13
+                key: 'Enter'
             });
             button.dispatchEvent(event);
 
@@ -524,7 +524,7 @@ describe('setupToggle', () => {
             // Act
             setupToggle();
             const tabEvent = new KeyboardEvent('keydown', {
-                which: 9,
+                key: 'Tab',
                 shiftKey: false
             });
             button1.dispatchEvent(tabEvent);
@@ -552,7 +552,7 @@ describe('setupToggle', () => {
             // Act
             setupToggle();
             const tabEvent = new KeyboardEvent('keydown', {
-                which: 9,
+                key: 'Tab',
                 shiftKey: false
             });
             button1.dispatchEvent(tabEvent);
@@ -584,7 +584,7 @@ describe('setupToggle', () => {
             // Act
             setupToggle();
             const tabEvent = new KeyboardEvent('keydown', {
-                which: 9,
+                key: 'Tab',
                 shiftKey: true
             });
             button2.dispatchEvent(tabEvent);
@@ -616,7 +616,7 @@ describe('setupToggle', () => {
             // Act
             setupToggle();
             const tabEvent = new KeyboardEvent('keydown', {
-                which: 9,
+                key: 'Tab',
                 shiftKey: true
             });
             button2.dispatchEvent(tabEvent);

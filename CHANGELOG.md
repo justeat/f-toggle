@@ -9,7 +9,7 @@ v0.12.0
 *March 6, 2018*
 
 ### Added
-- Improved accessibility by adding 'enter' and 'tab' keyboard events
+- Improved accessibility by allowing a user to move between accordion sections using 'tab', and toggling sections on 'enter'
 
 
 v0.11.2

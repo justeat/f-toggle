@@ -51,25 +51,24 @@ const setupToggle = () => {
             toggle.addEventListener('keydown', event => {
 
                 // if user has pressed 'enter' bind toggle behaviour
-                if (event.which === 13) {
+                if (event.key === 'Enter') {
                     bindBehaviour(event);
                 }
 
                 // if the section clicked is an accordion element
                 if (accordion && !accordionExclude) {
 
-                    event.preventDefault();
-
                     const toggleAccordionClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
                     const parent = event.target.parentNode;
-                    const tabbed = !event.shiftKey && event.which === 9;
-                    const reverseTabbed = event.shiftKey && event.which === 9;
+                    const tabbed = !event.shiftKey && event.key === 'Tab';
+                    const reverseTabbed = event.shiftKey && event.key === 'Tab';
 
                     // if user has tabbed then focus on next accordion section
                     if (tabbed && parent.nextElementSibling
                         && parent.nextElementSibling.hasAttribute('data-toggle-name')
                         && parent.classList.contains(toggleAccordionClass)
                     ) {
+                        event.preventDefault();
                         parent.nextElementSibling.querySelector('[data-toggle-target]').focus();
                     }
 
@@ -78,6 +77,7 @@ const setupToggle = () => {
                         && parent.previousElementSibling.hasAttribute('data-toggle-name')
                         && parent.previousElementSibling.classList.contains(toggleAccordionClass)
                     ) {
+                        event.preventDefault();
                         parent.previousElementSibling.querySelector('[data-toggle-target]').focus();
                     }
                 }
