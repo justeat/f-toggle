@@ -10,6 +10,41 @@ import closest from 'closest';
 import { toggles, handleAccordionToggles, handleToggles } from './helpers/internal';
 import { toggleAccordion, toggleSection, setToggleCallback } from './helpers/external';
 
+const onKeydown = (event, bindToggleBehaviour, accordion, accordionExclude) => {
+
+    // if user has pressed 'enter' bind toggle behaviour
+    if (event.key === 'Enter') {
+        bindToggleBehaviour(event);
+    }
+
+    // if the section clicked is an accordion element
+    if (accordion && !accordionExclude) {
+
+        const toggleAccordionClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
+        const parent = event.target.parentNode;
+        const tabbed = !event.shiftKey && event.key === 'Tab';
+        const reverseTabbed = event.shiftKey && event.key === 'Tab';
+
+        // if user has tabbed then focus on next accordion section
+        if (tabbed && parent.nextElementSibling
+            && parent.nextElementSibling.hasAttribute('data-toggle-name')
+            && parent.classList.contains(toggleAccordionClass)
+        ) {
+            event.preventDefault();
+            parent.nextElementSibling.querySelector('[data-toggle-target]').focus();
+        }
+
+        // if user has reverse tabbed then focus on previous accordion section
+        if (reverseTabbed && parent.previousElementSibling
+            && parent.previousElementSibling.hasAttribute('data-toggle-name')
+            && parent.previousElementSibling.classList.contains(toggleAccordionClass)
+        ) {
+            event.preventDefault();
+            parent.previousElementSibling.querySelector('[data-toggle-target]').focus();
+        }
+    }
+};
+
 const setupToggle = () => {
 
     /**
@@ -39,53 +74,20 @@ const setupToggle = () => {
             const accordion = closest(toggle, '[data-toggle-accordion]');
             const toggleClass = toggle.getAttribute('data-toggle-class') || 'is-hidden';
 
-            const bindBehaviour = e => {
-                e.preventDefault();
+            const addToggleBehaviour = event => {
+                event.preventDefault();
                 return (accordion && !accordionExclude)
                     ? handleAccordionToggles(target, accordion)
                     : handleToggles(target, toggleClass);
             };
 
-            toggle.addEventListener('click', bindBehaviour);
-
+            toggle.addEventListener('click', addToggleBehaviour);
             toggle.addEventListener('keydown', event => {
-
-                // if user has pressed 'enter' bind toggle behaviour
-                if (event.key === 'Enter') {
-                    bindBehaviour(event);
-                }
-
-                // if the section clicked is an accordion element
-                if (accordion && !accordionExclude) {
-
-                    const toggleAccordionClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
-                    const parent = event.target.parentNode;
-                    const tabbed = !event.shiftKey && event.key === 'Tab';
-                    const reverseTabbed = event.shiftKey && event.key === 'Tab';
-
-                    // if user has tabbed then focus on next accordion section
-                    if (tabbed && parent.nextElementSibling
-                        && parent.nextElementSibling.hasAttribute('data-toggle-name')
-                        && parent.classList.contains(toggleAccordionClass)
-                    ) {
-                        event.preventDefault();
-                        parent.nextElementSibling.querySelector('[data-toggle-target]').focus();
-                    }
-
-                    // if user has reverse tabbed then focus on previous accordion section
-                    if (reverseTabbed && parent.previousElementSibling
-                        && parent.previousElementSibling.hasAttribute('data-toggle-name')
-                        && parent.previousElementSibling.classList.contains(toggleAccordionClass)
-                    ) {
-                        event.preventDefault();
-                        parent.previousElementSibling.querySelector('[data-toggle-target]').focus();
-                    }
-                }
+                onKeydown(event, addToggleBehaviour, accordion, accordionExclude);
             });
         });
 
 };
-
 
 export {
     setupToggle,

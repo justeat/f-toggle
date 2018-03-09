@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v0.12.0
 ------------------------------
-*March 8, 2018*
+*March 9, 2018*
 
 ### Added
 - Improved accessibility by allowing a user to move between accordion sections using 'tab', and toggling sections on 'enter'
