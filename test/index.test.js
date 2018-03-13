@@ -622,6 +622,8 @@ describe('setupToggle', () => {
             button2.dispatchEvent(tabEvent);
 
             // Assert
+            // There is an issue here with jsdom. The element of focus will be <input name="one" />,
+            // however the test incorrectly returns the full body.
             expect(document.activeElement).not.toEqual(button1);
         });
 
