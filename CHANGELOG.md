@@ -9,7 +9,7 @@ v0.12.1
 *March 21, 2018*
 
 ### Added
-- Added possibility to configure whether first accordion section is expanded by default (data-accordion-first-section-expanded attribute)
+- Added possibility to configure whether first accordion section is expanded by default (`data-accordion-first-section-expanded` attribute)
 
 
 v0.12.0

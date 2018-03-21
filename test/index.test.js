@@ -336,7 +336,7 @@ describe('setupToggle', () => {
                 <div data-toggle-name="two"></div>
                 <button data-toggle-target="two"></button>
             </div>
-            `	);
+        `);
 
             // Act
             setupToggle();
