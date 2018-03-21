@@ -82,12 +82,25 @@ In this example the `toggled` class will be applied to the target element (rathe
 
 If you require accordion behaviour just wrap your content within an element containing `data-toggle-accordion`. 
 On clicking a button with `data-toggle-target` the target item will be toggled, and all other elements in the group 
-are hidden.
+are hidden. All accordion sections are hidden by default.
 
 In this instance you are then able to add `data-toggle-class` to the parent, as opposed to each `data-toggle-target`.
 
 ```html
 <div data-toggle-accordion data-toggle-class="is-hidden">
+    <button data-toggle-target="one"></button>
+    <div data-toggle-name="one"></div>
+    <button data-toggle-target="two"></button>
+    <div data-toggle-name="two"></div>
+    <button data-toggle-target="three"></button>
+    <div data-toggle-name="three"></div>
+</div>
+```
+
+To expand first accordion section by default add `data-accordion-first-section-expanded` attribute to the parent element.
+
+```html
+<div data-toggle-accordion data-accordion-first-section-expanded data-toggle-class="is-hidden">
     <button data-toggle-target="one"></button>
     <div data-toggle-name="one"></div>
     <button data-toggle-target="two"></button>
