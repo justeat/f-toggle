@@ -48,17 +48,17 @@ const onKeydown = (event, bindToggleBehaviour, accordion, accordionExclude) => {
 const setupToggle = () => {
 
     /**
-     * If accordion, display first section on initialisation based on "data-accordion-first-section-expanded" attribute presence
+     * If accordion, display first section on initialisation based on "data-toggle-first-section-expanded" attribute presence
      */
 
     $('[data-toggle-accordion]')
         .forEach(accordion => {
             const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
-            const expandFirstSection = accordion.hasAttribute('data-accordion-first-section-expanded') || false;
+            const isFirstSectionExpanded = accordion.hasAttribute('data-toggle-first-section-expanded');
 
             $('[data-toggle-name]', accordion)
                 .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
-                .slice(expandFirstSection ? 1 : 0)
+                .slice(isFirstSectionExpanded ? 1 : 0)
                 .forEach(toggles(toggleClass).hide);
         });
 
