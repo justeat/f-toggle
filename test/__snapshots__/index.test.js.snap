@@ -2,8 +2,19 @@
 
 exports[`setupToggle accordion should display only the first item on initialisation 1`] = `
 "
-            <div data-toggle-accordion=\\"\\">
+            <div data-toggle-accordion=\\"\\" data-toggle-first-section-expanded=\\"\\">
                 <div data-toggle-name=\\"one\\"></div>
+                <button data-toggle-target=\\"one\\"></button>
+                <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
+                <button data-toggle-target=\\"two\\"></button>
+            </div>
+        "
+`;
+
+exports[`setupToggle accordion should have all items collapsed on initialisation 1`] = `
+"
+            <div data-toggle-accordion=\\"\\">
+                <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
                 <button data-toggle-target=\\"one\\"></button>
                 <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
                 <button data-toggle-target=\\"two\\"></button>
