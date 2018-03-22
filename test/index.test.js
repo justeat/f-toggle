@@ -325,8 +325,8 @@ describe('setupToggle', () => {
             // Assert
             expect(TestUtils.getBodyHtml()).toMatchSnapshot();
         });
-		
-		it('should have all items collapsed on initialisation', () => {
+
+        it('should have all items collapsed on initialisation', () => {
 
             // Arrange
             TestUtils.setBodyHtml(`
