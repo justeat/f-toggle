@@ -118,6 +118,49 @@ describe('setToggleCallback', () => {
         expect(spy).toHaveBeenCalled();
     });
 
+    it('should call assigned method when passing object as selector', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+             <div>
+                <div data-toggle-name="one"></div>
+                <button data-toggle-target="one"></button>
+            </div>
+        `);
+        const button = document.querySelector('button');
+        const options = {
+            callbackFn: () => {
+            }
+        };
+        const spy = jest.spyOn(options, 'callbackFn');
+
+        // Act
+        setupToggle();
+        setToggleCallback(button, options.callbackFn);
+        TestUtils.click(button);
+
+        // Assert
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('should throw error if element is not found from passed selector', () => {
+        // Arrange
+        TestUtils.setBodyHtml(`
+             <div>
+                <div data-toggle-name="one"></div>
+            </div>
+        `);
+
+        // Act
+        setupToggle();
+
+        // Assert
+        expect(() => {
+            setToggleCallback('[data-toggle-target]', () => {
+            });
+        }).toThrowError('f-toggle: unable to find element from selector');
+
+    });
+
     it('should throw error if element is missing a \'data-toggle-accordion\' or \'data-toggle-target\' attribute', () => {
         // Arrange
         TestUtils.setBodyHtml(`

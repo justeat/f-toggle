@@ -56,12 +56,16 @@ const toggleSection = (target, toggleClass = 'is-hidden') => handleToggles(targe
  *   callbackFn();
  * });
  *
- * @param {string} selector
+ * @param {string|Element} selector
  * @param {function} callback
  */
 const setToggleCallback = (selector, callback) => {
+    const container = typeof selector === 'object' ? selector : $.first(selector);
 
-    const container = $.first(selector);
+    if (!container) {
+        throw new Error('f-toggle: unable to find element from selector');
+    }
+
     const isAccordion = container.hasAttribute('data-toggle-accordion');
 
     if (typeof callback !== 'function') {

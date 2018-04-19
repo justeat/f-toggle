@@ -3,7 +3,7 @@
 exports[`toggleAccordion should toggle section on calling method 1`] = `
 "
             <div data-toggle-accordion=\\"\\">
-                <div data-toggle-name=\\"one\\"></div>
+                <div data-toggle-name=\\"one\\" class=\\"is-hidden\\"></div>
                 <button data-toggle-target=\\"one\\"></button>
                 <div data-toggle-name=\\"two\\" class=\\"is-hidden\\"></div>
                 <button data-toggle-target=\\"two\\"></button>
