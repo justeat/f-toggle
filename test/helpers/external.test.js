@@ -118,7 +118,7 @@ describe('setToggleCallback', () => {
         expect(spy).toHaveBeenCalled();
     });
 
-    it('should call assigned method when passing object as selector', () => {
+    it('should call assigned method when passing an element as a selector', () => {
         // Arrange
         TestUtils.setBodyHtml(`
              <div>
