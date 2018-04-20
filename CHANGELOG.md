@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v0.13.0
+------------------------------
+*April 19, 2018*
+
+### Added
+- A user can now pass an element through to the setToggleCallback function
+
+
 v0.12.1
 ------------------------------
 *March 21, 2018*

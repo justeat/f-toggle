@@ -137,7 +137,7 @@ Allows user to run callback when a section is toggled.
 **Selector**  
 Specify the section or accordion to set a callback on when a `click` event is fired on it
 
-* Type: string  
+* Type: string | Element
 * Example: `.selector`
 
 **Callback**  
