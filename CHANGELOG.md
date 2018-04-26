@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v0.13.1
+------------------------------
+*April 26, 2018*
+
+### Added
+- Added package size badge to readme.
+
+
 v0.13.0
 ------------------------------
 *April 19, 2018*

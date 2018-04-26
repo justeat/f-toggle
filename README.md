@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/justeat/f-toggle.svg)](https://travis-ci.org/justeat/f-toggle)
 [![Coverage Status](https://coveralls.io/repos/github/justeat/f-toggle/badge.svg)](https://coveralls.io/github/justeat/f-toggle)
 [![Dependency Status](https://gemnasium.com/badges/github.com/justeat/f-toggle.svg)](https://gemnasium.com/github.com/justeat/f-toggle)
+[![install size](https://packagephobia.now.sh/badge?p=@justeat/f-toggle)](https://packagephobia.now.sh/result?p=@justeat/f-toggle)
 
 Fozzie vanilla JS toggle library.
 
@@ -80,8 +81,8 @@ In this example the `toggled` class will be applied to the target element (rathe
 
 ### Accordion
 
-If you require accordion behaviour just wrap your content within an element containing `data-toggle-accordion`. 
-On clicking a button with `data-toggle-target` the target item will be toggled, and all other elements in the group 
+If you require accordion behaviour just wrap your content within an element containing `data-toggle-accordion`.
+On clicking a button with `data-toggle-target` the target item will be toggled, and all other elements in the group
 are hidden. All accordion sections are hidden by default.
 
 In this instance you are then able to add `data-toggle-class` to the parent, as opposed to each `data-toggle-target`.
@@ -112,7 +113,7 @@ To expand first accordion section by default add `data-toggle-first-section-expa
 
 #### Exclude toggle items from accordion
 
-In the situation you have a toggle item within an accordion element, but you do not want it to adopt the accordion 
+In the situation you have a toggle item within an accordion element, but you do not want it to adopt the accordion
 behaviour, simply add `data-toggle-accordion-exclude`:
 
 ```html
@@ -134,16 +135,16 @@ behaviour, simply add `data-toggle-accordion-exclude`:
 Allows user to run callback when a section is toggled.
 
 #### Arguments
-**Selector**  
+**Selector**
 Specify the section or accordion to set a callback on when a `click` event is fired on it
 
 * Type: string | Element
 * Example: `.selector`
 
-**Callback**  
+**Callback**
 The callback to be executed on clicking the section
 
-* Type: function  
+* Type: function
 * Example: `() => {
     callbackFn();
 }`
@@ -165,16 +166,16 @@ setToggleCallback('[data-toggle-target]', () => {
 Toggles the accordion sections, displaying the section specified and closing all others
 
 #### Arguments
-**Selector**  
+**Selector**
 Specify the accordion to toggle
 
-* Type: string  
+* Type: string
 * Example: `.accordion`
 
-**Section**  
+**Section**
 Specify the name of the section to be shown. This will be the value of the data-toggle-name attribute
 
-* Type: string  
+* Type: string
 * Example: `two`
 
 ```javascript
@@ -186,16 +187,16 @@ toggleAccordion('.accordion', 'two');
 Toggles sections based on the options passed in
 
 #### Arguments
-**Options**  
+**Options**
 Specify the sections to toggle/show/hide
 
-* Type: string  
+* Type: string
 * Example: `hide:one hide:two`
 
-**Class**  
+**Class**
 Specify the toggle class to be added/removed from sections
 
-* Type: string  
+* Type: string
 * Example: `is-hidden-custom`
 
 ```javascript
