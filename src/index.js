@@ -11,7 +11,6 @@ import { toggles, handleAccordionToggles, handleToggles } from './helpers/intern
 import { toggleAccordion, toggleSection, setToggleCallback } from './helpers/external';
 
 const onKeydown = (event, bindToggleBehaviour, accordion, accordionExclude) => {
-
     // if user has pressed 'enter' bind toggle behaviour
     if (event.key === 'Enter') {
         bindToggleBehaviour(event);
@@ -19,7 +18,6 @@ const onKeydown = (event, bindToggleBehaviour, accordion, accordionExclude) => {
 
     // if the section clicked is an accordion element
     if (accordion && !accordionExclude) {
-
         const toggleAccordionClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
         const parent = event.target.parentNode;
         const tabbed = !event.shiftKey && event.key === 'Tab';
@@ -46,7 +44,6 @@ const onKeydown = (event, bindToggleBehaviour, accordion, accordionExclude) => {
 };
 
 const setupToggle = () => {
-
     /**
      * If accordion, display first section on initialisation based on "data-toggle-first-section-expanded" attribute presence
      */
@@ -68,7 +65,6 @@ const setupToggle = () => {
 
     $('[data-toggle-target]')
         .forEach(toggle => {
-
             const target = toggle.getAttribute('data-toggle-target');
             const accordionExclude = toggle.hasAttribute('data-toggle-accordion-exclude');
             const accordion = closest(toggle, '[data-toggle-accordion]');
@@ -86,7 +82,6 @@ const setupToggle = () => {
                 onKeydown(event, addToggleBehaviour, accordion, accordionExclude);
             });
         });
-
 };
 
 export {
@@ -97,7 +92,5 @@ export {
 };
 
 ready(() => {
-
     setupToggle();
-
 });

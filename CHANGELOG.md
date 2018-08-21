@@ -4,6 +4,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.1.0
+------------------------------
+*August 21, 2018*
+
+### Added
+- Added transform-object-rest-spread Babel plugin.
+
+### Changed
+- Update Travis config.
+- Updated DangerJS config.
+- Updated package dependencies.
+
+### Removed
+- Gemnasium badge.
+- Babili preset.
+
+
 v1.0.0
 ------------------------------
 *August 21, 2018*

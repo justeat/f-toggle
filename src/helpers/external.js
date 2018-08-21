@@ -77,7 +77,6 @@ const setToggleCallback = (selector, callback) => {
     }
 
     if (isAccordion) {
-
         $('[data-toggle-target]', container)
             .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
             .forEach(toggle => {
@@ -85,15 +84,11 @@ const setToggleCallback = (selector, callback) => {
                     callback.call(this, toggle);
                 });
             });
-
     } else {
-
         container.addEventListener('click', () => {
             callback.call(this, container);
         });
-
     }
-
 };
 
 export {
