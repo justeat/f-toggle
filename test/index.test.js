@@ -2,13 +2,11 @@ import TestUtils from 'js-test-buddy';
 import { setupToggle } from '../src/index';
 
 describe('setupToggle', () => {
-
     it('is a function', () => {
         expect(typeof setupToggle).toBe('function');
     });
 
     describe('toggle method', () => {
-
         it('adds hidden class', () => {
             // Arrange
             TestUtils.setBodyHtml(`
@@ -107,11 +105,9 @@ describe('setupToggle', () => {
             // Assert
             expect(TestUtils.getBodyHtml()).toMatchSnapshot();
         });
-
     });
 
     describe('show method', () => {
-
         it('does nothing when element is already shown', () => {
             // Arrange
             TestUtils.setBodyHtml(`
@@ -193,11 +189,9 @@ describe('setupToggle', () => {
             // Assert
             expect(TestUtils.getBodyHtml()).toMatchSnapshot();
         });
-
     });
 
     describe('hide method', () => {
-
         it('does nothing when element is already hidden', () => {
             // Arrange
             TestUtils.setBodyHtml(`
@@ -279,11 +273,9 @@ describe('setupToggle', () => {
             // Assert
             expect(TestUtils.getBodyHtml()).toMatchSnapshot();
         });
-
     });
 
     describe('mixed toggles', () => {
-
         it('shows and hides elements correctly', () => {
             // Arrange
             TestUtils.setBodyHtml(`
@@ -302,13 +294,10 @@ describe('setupToggle', () => {
             // Assert
             expect(TestUtils.getBodyHtml()).toMatchSnapshot();
         });
-
     });
 
     describe('accordion', () => {
-
         it('should display only the first item on initialisation', () => {
-
             // Arrange
             TestUtils.setBodyHtml(`
             <div data-toggle-accordion data-toggle-first-section-expanded>
@@ -327,7 +316,6 @@ describe('setupToggle', () => {
         });
 
         it('should have all items collapsed on initialisation', () => {
-
             // Arrange
             TestUtils.setBodyHtml(`
             <div data-toggle-accordion>
@@ -346,7 +334,6 @@ describe('setupToggle', () => {
         });
 
         it('should update the button selected class on selecting new section', () => {
-
             // Arrange
             TestUtils.setBodyHtml(`
             <div data-toggle-accordion>
@@ -444,11 +431,9 @@ describe('setupToggle', () => {
             TestUtils.click(button2);
             expect(TestUtils.getBodyHtml()).toMatchSnapshot();
         });
-
     });
 
     describe('keydown', () => {
-
         it('should toggle section on pressing \'enter\'', () => {
             // Arrange
             TestUtils.setBodyHtml(`
@@ -645,7 +630,5 @@ describe('setupToggle', () => {
             // however the test incorrectly returns the full body.
             expect(document.activeElement).not.toEqual(button1);
         });
-
     });
-
 });

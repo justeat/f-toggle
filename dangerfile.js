@@ -1,5 +1,6 @@
-/* global danger, fail, message */
+/* global danger, fail, warn, message */
 
+const modifiedFiles = danger.git.modified_files;
 const bodyAndTitle = (danger.github.pr.body + danger.github.pr.title).toLowerCase();
 const isTrivial = bodyAndTitle.includes('#trivial');
 
@@ -26,6 +27,17 @@ if (!isTrivial) {
         console.log(err);
         /* eslint-enable no-console */
     });
+
+
+    // Update the readme when config changes
+    const taskFiles = modifiedFiles.filter(path => path.startsWith('tasks'));
+    const configChanged = modifiedFiles.includes('config.js');
+    const readmeChanged = modifiedFiles.includes('README.md');
+
+    if ((taskFiles.length > 0 || configChanged) && !readmeChanged) {
+        warn(':memo: If you’ve changed the config or task files, please check that the README is still up-to-date.');
+    }
+
 
     // Message on deletions
     if (danger.github.pr.deletions > danger.github.pr.additions) {

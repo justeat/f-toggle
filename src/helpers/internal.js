@@ -56,7 +56,6 @@ const handleToggles = (targets, toggleClass) => {
         $(`[data-toggle-name~=${toggleName}]`)
             .forEach(toggles(toggleClass)[toggleType]);
     });
-
 };
 
 /**
@@ -71,7 +70,6 @@ const handleToggles = (targets, toggleClass) => {
  * @param {string} visibility
  */
 const handleAccordionToggles = (target, accordion, visibility = 'toggle') => {
-
     const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
 
     $('[data-toggle-name]', accordion)
@@ -80,7 +78,6 @@ const handleAccordionToggles = (target, accordion, visibility = 'toggle') => {
             const type = element.getAttribute('data-toggle-name') === target ? visibility : 'hide';
             toggles(toggleClass)[type](element);
         });
-
 };
 
 export {

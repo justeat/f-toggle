@@ -1,8 +1,9 @@
 import TestUtils from 'js-test-buddy';
-import { setupToggle, setToggleCallback, toggleAccordion, toggleSection } from '../../src/index';
+import {
+    setupToggle, setToggleCallback, toggleAccordion, toggleSection
+} from '../../src/index';
 
 describe('toggleAccordion', () => {
-
     it('should toggle section on calling method', () => {
         // Arrange
         TestUtils.setBodyHtml(`
@@ -21,13 +22,10 @@ describe('toggleAccordion', () => {
         // Act & Assert
         toggleAccordion('[data-toggle-accordion]', 'two');
         expect(TestUtils.getBodyHtml()).toMatchSnapshot();
-
     });
-
 });
 
 describe('toggleSection', () => {
-
     it('should toggle section(s) on calling method', () => {
         // Arrange
         TestUtils.setBodyHtml(`
@@ -44,7 +42,6 @@ describe('toggleSection', () => {
         // Act & Assert
         toggleSection('hide:one hide:two');
         expect(TestUtils.getBodyHtml()).toMatchSnapshot();
-
     });
 
     it('should toggle section(s) on calling method with custom class', () => {
@@ -63,13 +60,10 @@ describe('toggleSection', () => {
         // Act & Assert
         toggleSection('hide:one hide:two', 'is-hidden-custom');
         expect(TestUtils.getBodyHtml()).toMatchSnapshot();
-
     });
-
 });
 
 describe('setToggleCallback', () => {
-
     it('should call assigned method on clicking accordion component', () => {
         // Arrange
         TestUtils.setBodyHtml(`
@@ -158,7 +152,6 @@ describe('setToggleCallback', () => {
             setToggleCallback('[data-toggle-target]', () => {
             });
         }).toThrowError('f-toggle: unable to find element from selector');
-
     });
 
     it('should throw error if element is missing a \'data-toggle-accordion\' or \'data-toggle-target\' attribute', () => {
@@ -178,7 +171,6 @@ describe('setToggleCallback', () => {
             setToggleCallback('div', () => {
             });
         }).toThrowError('f-toggle: this element is missing a \'data-toggle-accordion\' or \'data-toggle-target\' attribute');
-
     });
 
     it('should throw error if calling without passing a callback', () => {
@@ -198,5 +190,4 @@ describe('setToggleCallback', () => {
             setToggleCallback('[data-toggle-target]');
         }).toThrowError('f-toggle: callback expects a function');
     });
-
 });
