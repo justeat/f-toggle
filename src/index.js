@@ -52,10 +52,12 @@ const setupToggle = () => {
         .forEach(accordion => {
             const toggleClass = accordion.getAttribute('data-toggle-class') || 'is-hidden';
             const isFirstSectionExpanded = accordion.hasAttribute('data-toggle-first-section-expanded');
+            const sectionExpanded = accordion.getAttribute('data-toggle-section-expanded');
 
             $('[data-toggle-name]', accordion)
                 .filter(toggle => !toggle.hasAttribute('data-toggle-accordion-exclude'))
                 .slice(isFirstSectionExpanded ? 1 : 0)
+                .filter(toggle => sectionExpanded !== toggle.getAttribute('data-toggle-name'))
                 .forEach(toggles(toggleClass).hide);
         });
 
