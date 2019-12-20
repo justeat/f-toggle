@@ -110,6 +110,19 @@ To expand first accordion section by default add `data-toggle-first-section-expa
 </div>
 ```
 
+To expand other accordion sections by default add `data-toggle-section-expanded` attribute value to the parent element.
+
+```html
+<div data-toggle-accordion data-toggle-section-expanded="two" data-toggle-class="is-hidden">
+    <button data-toggle-target="one"></button>
+    <div data-toggle-name="one"></div>
+    <button data-toggle-target="two"></button>
+    <div data-toggle-name="two"></div>
+    <button data-toggle-target="three"></button>
+    <div data-toggle-name="three"></div>
+</div>
+```
+
 #### Exclude toggle items from accordion
 
 In the situation you have a toggle item within an accordion element, but you do not want it to adopt the accordion
