@@ -297,24 +297,6 @@ describe('setupToggle', () => {
     });
 
     describe('accordion', () => {
-        it('should display only the first item on initialisation', () => {
-            // Arrange
-            TestUtils.setBodyHtml(`
-            <div data-toggle-accordion data-toggle-first-section-expanded>
-                <div data-toggle-name="one"></div>
-                <button data-toggle-target="one"></button>
-                <div data-toggle-name="two"></div>
-                <button data-toggle-target="two"></button>
-            </div>
-        `);
-
-            // Act
-            setupToggle();
-
-            // Assert
-            expect(TestUtils.getBodyHtml()).toMatchSnapshot();
-        });
-
         it('should display only the expanded item on initialisation', () => {
             // Arrange
             TestUtils.setBodyHtml(`

@@ -1,7 +1,7 @@
 {
   "name": "@justeat/f-toggle",
   "description": "Fozzie vanilla JS toggle library.",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "main": "dist/index.js",
   "files": [
     "dist"
