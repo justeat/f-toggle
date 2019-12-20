@@ -97,10 +97,10 @@ In this instance you are then able to add `data-toggle-class` to the parent, as 
 </div>
 ```
 
-To expand first accordion section by default add `data-toggle-first-section-expanded` attribute to the parent element.
+To expand accordion section by default add `data-toggle-section-expanded` attribute value to the parent element.
 
 ```html
-<div data-toggle-accordion data-toggle-first-section-expanded data-toggle-class="is-hidden">
+<div data-toggle-accordion data-toggle-section-expanded="two" data-toggle-class="is-hidden">
     <button data-toggle-target="one"></button>
     <div data-toggle-name="one"></div>
     <button data-toggle-target="two"></button>

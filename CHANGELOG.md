@@ -4,6 +4,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v2.0.0
+------------------------------
+*December 20 2019*
+
+### Added
+- Added possibility to configure which accordion section is expanded by default (`data-toggle-section-expanded` attribute)
+
+### Removed
+- Removed possibility to configure whether only first accordion section is expanded by default (`data-toggle-first-section-expanded` attribute)
+
+
 v1.1.0
 ------------------------------
 *August 21, 2018*

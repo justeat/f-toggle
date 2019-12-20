@@ -297,10 +297,10 @@ describe('setupToggle', () => {
     });
 
     describe('accordion', () => {
-        it('should display only the first item on initialisation', () => {
+        it('should display only the expanded item on initialisation', () => {
             // Arrange
             TestUtils.setBodyHtml(`
-            <div data-toggle-accordion data-toggle-first-section-expanded>
+            <div data-toggle-accordion data-toggle-section-expanded="two">
                 <div data-toggle-name="one"></div>
                 <button data-toggle-target="one"></button>
                 <div data-toggle-name="two"></div>
@@ -540,7 +540,7 @@ describe('setupToggle', () => {
         it('should not focus on the next section when pressing \'tab\' and the current section is visible', () => {
             // Arrange
             TestUtils.setBodyHtml(`
-                <div data-toggle-accordion data-toggle-first-section-expanded>
+                <div data-toggle-accordion data-toggle-section-expanded="one">
                     <div data-toggle-name="one">
                         <button data-toggle-target="one"></button>
                         <input name="one" />
@@ -600,7 +600,7 @@ describe('setupToggle', () => {
         it('should not focus on the previous section when pressing \'shift\' & \'tab\' and the previous section is visible', () => {
             // Arrange
             TestUtils.setBodyHtml(`
-                <div data-toggle-accordion data-toggle-first-section-expanded>
+                <div data-toggle-accordion data-toggle-section-expanded="one">
                     <div data-toggle-name="one">
                         <button data-toggle-target="one"></button>
                         <input name="one" />
